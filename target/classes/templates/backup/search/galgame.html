@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏 -Xana-弹幕视频网好玩的二次元分享社区-认真你就输啦 (・ω・)ノ-( ゜-゜)つロ -  </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="/ref/img/icon/favicon.ICO" type="image/x-icon" />
+    <link rel="stylesheet" href="/ref/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/ref/css/public.xana.css">
+    <link rel="stylesheet" href="/ref/css/galgame.xana.css">
+
+    <link rel="stylesheet" href="/ref/css/backimg.xana.css">
+    <script src="/ref/js/jquery-3.5.1.min.js"></script>
+    <script src="/ref/js/bootstrap.min.js"></script>
+    <script src="/ref/js/public/backimg.xana.js"></script>
+
+    <script th:inline="javascript">
+        var res = [[${res}]];
+    </script>
+    <script src="/ref/js/public/search.xana.js"></script>
+    <script src="/ref/js/search.game.xana.js"></script>
+
+</head>
+<body>
+
+<div id="hd">
+    <nav style="position: fixed; top: 0; z-index: 100">
+        <div class="logo">
+            <a href="/" title="主页">
+                <img src="/ref/img/logo.png" alt="">
+            </a>
+        </div>
+
+        <div id="hdtags" style="">
+            <a href="/">门户</a>
+            <a href="#">最新热漫</a>
+            <a href="#">视频专区</a>
+            <a href="#">音乐</a>
+            <a href="#">漫画</a>
+            <a href="#">游戏</a>
+            <a href="#">资讯</a>
+        </div>
+
+        <div id="loginDiv">
+            <a href="/login">登录</a>
+            <a href="/signUp">注册</a>
+            <a href="/signUp">忘记密码?</a>
+            <a href="/signUp">QQ登录</a>
+            <a href="/signUp">微信登录</a>
+        </div>
+        <div id="userdiv">
+            <a href="/user/" id="usernav"><img src="/ref/img/user-icon/ete.jpg" alt="" class="img-circle">某傲娇的只眼姬</a>
+            <ul class="nav navbar">
+                <div id="username">某傲娇的只眼姬</div>
+                <li id="lv">Lv6</li>
+                <li id="uid">UID:100000</li>
+                <li><a href=""><img src="/ref/img/icon/all/user.png">个人中心</a></li>
+                <li><a href=""><img src="/ref/img/icon/all/upload.png" alt="">投稿管理</a></li>
+                <li><a href=""><img src="/ref/img/icon/all/order.png" alt="">订单中心</a></li>
+                <li><a href=""><img src="/ref/img/icon/all/exit.png" alt="">退出</a></li>
+            </ul>
+            <a href="">动态</a>
+            <a href="">收藏</a>
+            <a href="">历史</a>
+        </div>
+        <div class="sub">
+            <a href="javascript:void(0);">扫码+关注</a>
+            <img src="/ref/img/QRcode/app-download.png" alt="">
+        </div>
+    </nav>
+
+    <div class="headerbg" style="height: 100px">
+    </div>
+
+    <!--侧边工具栏-->
+    <div class="side_bar">
+        <ul>
+            <li class="side_bar_tel">
+                <i><img src="/ref/img/icon/all/mail.png" alt="" title="电子邮箱"></i>
+                <div class="deansidehidden">
+                    <p>xana@qq.com</p>
+                </div>
+            </li>
+            <li class="side_bar_weixin">
+                <i><img src="/ref/img/icon/all/qq.png" alt="" title="QQ"></i>
+                <div class="deansidehidden">
+                    <img src="/ref/img/QRcode/me.jpg" alt="">
+                    <p>联系站长QQ</p>
+                </div>
+            </li>
+            <li class="side_bar_top">
+
+                <i onclick="window.scroll({ top: 0, behavior: 'smooth'})" title="回到顶部">
+                    <img src="/ref/img/icon/all/top.png" alt="">
+                </i>
+                <div class="deansidehidden">
+                    <p>返回顶部</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="backimg">
+    <section>
+        <ul class="cb-slideshow"></ul>
+    </section>
+    <div class="GalMenu GalDropDown" style="top: 70px; left: 480px; opacity: 1;">
+        <div class="circle" id="gal">
+            <div class="ring">
+                <a href="/" title="首页" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+                <a href="javascript:void(0);" title="" class="menuItem next" style="left: 80.3109%; top: 32.5%;">下一页</a>
+                <a href="" title="" class="menuItem" style="left: 80.3109%; top: 67.5%;">留言版</a>
+                <a href="" title="" class="menuItem" style="left: 50%; top: 85%;">热门排行</a>
+                <a href="" title="" class="menuItem" style="left: 19.6891%; top: 67.5%;">更新日志</a>
+                <a href="javascript:void(0);" title="" class="menuItem front" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            </div>
+            <audio id="audio" src="https://www.hacg.me/mp3/onj001.mp3"></audio>
+        </div>
+
+    </div>
+    <div id="overlay" class="magnify" style="display: none;">
+        <div class="large h_img" style=""></div>
+        <img class="small" src="/ref/img/public/rpic.png" width="1920">
+    </div>
+</div>
+
+<div class='container main'>
+
+    <div class="searchDiv row">
+        <div class="auto-width search">
+            <input type="text" class="key" placeholder="搜索关键字...">
+            <a href="#"><li class="glyphicon glyphicon-search"></li></a>
+        </div>
+        <div class="keys">
+            <a href="#">综合</a>
+            <a href="/search/bangumi/" title="bangumi">番剧</a>
+            <a href="#">动画</a>
+            <a href="#">漫画</a>
+            <a href="/search/game/" title="game">游戏</a>
+            <a href="#">音乐</a>
+        </div>
+    </div>
+
+    <div class="col-sm-9 no-padding"></div>
+    <div class="col-sm-3">
+        <div class="tag">
+            <div class="mark-body">
+                <li class="glyphicon glyphicon-tags" style="font-size: 32px;"></li>
+                <span class="text-info mark-info">热门标签</span>
+            </div>
+            <div class="tags">
+                <a href="/game">All</a>
+                <a href="/game/tag/ALcot社">ALcot社</a>
+                <a href="/game/tag/ALcot蜂巢社">ALcot蜂巢社</a>
+                <a href="/game/tag/AliceSoft">AliceSoft</a>
+                <a href="/game/tag/August（八月社）">August（八月社）</a>
+                <a href="/game/tag/elf">elf</a>
+                <a href="/game/tag/Eushully(E社)">Eushully(E社)</a>
+                <a href="/game/tag/Key社">Key社</a>
+                <a href="/game/tag/LOLI">LOLI</a>
+                <a href="/game/tag/minori">minori</a>
+                <a href="/game/tag/Nitro+社">Nitro+社</a>
+                <a href="/game/tag/NTR">NTR</a>
+                <a href="/game/tag/smee社">smee社</a>
+                <a href="/game/tag/伪娘">伪娘</a>
+                <a href="/game/tag/全年龄">全年龄</a>
+                <a href="/game/tag/凌辱">凌辱</a>
+                <a href="/game/tag/妹系">妹系</a>
+                <a href="/game/tag/姐系">姐系</a>
+                <a href="/game/tag/悬疑">悬疑</a>
+                <a href="/game/tag/拔作">拔作</a>
+                <a href="/game/tag/日常">日常</a>
+                <a href="/game/tag/柚子社">柚子社</a>
+                <a href="/game/tag/瀬戸口廉也">瀬戸口廉也</a>
+                <a href="/game/tag/片岡とも">片岡とも</a>
+                <a href="/game/tag/猎奇">猎奇</a>
+                <a href="/game/tag/百合">百合</a>
+                <a href="/game/tag/纯爱">纯爱</a>
+                <a href="/game/tag/致郁">致郁</a>
+                <a href="/game/tag/软房子">软房子</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

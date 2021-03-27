@@ -1,0 +1,246 @@
+
+.cv-box .auto-width-height-ratio{
+    padding-top: 61.8%;
+}
+
+.cv-box .title{
+    color: #f25d8e;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.video-info{
+    margin-top: 12px;
+    margin-bottom: 10px;
+}
+
+.video-info div{
+    font-size: 13px;
+    color: gray;
+    margin-top: 7px;
+    position: relative;
+}
+.video-info>.des{
+    color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    font-size: 15px;
+}
+.video-info>i{
+    cursor: pointer;
+    color: #8498c0;
+    font-size: 15px;
+}
+
+.video-info div .icon-box{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.icon-box>a, .icon-box>a:hover{
+    margin-left: -7px;
+    font-size: 20px;
+}
+.icon-box>a:hover{
+    color: rgba(255, 63, 78, 0.71);
+}
+
+
+.cv-box .up-box{
+    height: 50px;
+    position: relative;
+}
+.cv-box .up-box .release-time{
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    font-size: 12px;
+    color: grey;
+}
+
+.cv-box .up-box div{
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+.cv-box .up-box div .btn-danger{
+    padding: 17px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.cv-box .episode-box .text{
+    font-size: 15px;
+    margin-top: 9px;
+}
+
+.episode-box{
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.12);
+    border-radius: 7px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.episode-box .auto-width-height-ratio{
+    padding-top: 97.67%;
+}
+.episode-box .auto-width-height-ratio .auto-ratio{
+    overflow-y: scroll;
+}
+.episode{
+    height: 36px;
+    padding-top: 7px;
+}
+.episode>.btn{
+    padding: 1px;
+    background-color: rgba(255, 255, 255, 0.55);
+}
+.episode>.btn:hover{
+    color: #fd4c5c;
+    background-color: rgba(255, 255, 255, 0.77);
+}
+.episode>.btn:focus{
+    outline: none;
+}
+
+.cv-box .ads-box{
+    padding-top: 46.66%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.commentDiv{
+    position: relative;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.22);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 70%;
+    transition: all 0.3s;
+}
+.commentDiv:hover{
+    box-shadow: 0 3px 7px 0 rgba(0,0,0,0.27);
+}
+.comment>i{
+    cursor: pointer;
+    color: #8498c0;
+    font-size: 70%;
+}
+.commentDiv>img{
+    width: 50px;
+}
+
+.commentDiv>h5{
+    position: absolute;
+    top: 5px;
+    left: 60px;
+}
+
+.commentDiv>h5>a{
+    color: black;
+    text-decoration: none;
+}
+.commentDiv>h5>a:hover{
+    color: #ff6f83;
+}
+
+.commentDiv>h5>i{
+    color: silver;
+    margin-left: 10px;
+}
+.commentDiv>.comment{
+    margin-left: 50px;
+}
+.commentDiv>.comment>.text{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 30;
+    -webkit-box-orient: vertical;
+}
+.commentDiv>.comment>i{
+    color: silver;
+}
+
+.commentDiv>.comment>.starAndrepaly{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.commentDiv>.comment>.starAndrepaly>a{
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+.commentDiv>.comment>.starAndrepaly>a:hover{
+    color: #ff6f83;
+}
+.commentDiv>.comment>.starAndrepaly>a>li{
+    font-size: 15px;
+}
+
+.repDiv{
+    padding: 10px;
+    max-height: 1000px;
+    background-color: rgba(192, 192, 192, 0.11);
+    overflow-y: scroll;
+    border-radius: 5px;
+}
+.replyDiv{
+    display: none;
+}
+.replyDiv>textarea{
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.6);
+    font-size: 15px;
+    width: 100%;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+.replyDiv>.btn{
+    padding:2px 10px 2px 10px;
+    float: right;
+}
+.repalyDiv>textarea:hover,textarea:focus{
+    border: #ff6f83 1px solid;
+}
+
+#statistic{
+    border-bottom: silver 2px solid;
+    padding: 10px
+}
+
+
+@media screen and (max-width: 756px){
+    .dmk{
+        display:none;
+    }
+    .icon-box>a{
+        font-size: 17px;
+    }
+    .video-info>.des{
+        -webkit-line-clamp: 5;
+    }
+    .commentDiv>.comment>.text{
+        -webkit-line-clamp: 10;
+    }
+    .video-info>.des,.video-info>i{
+        font-size: 13px;
+    }
+    #comment{
+        padding: 4px;
+        font-size: 15px;
+    }
+    .cv-box .title{
+        font-size: 16px;
+    }
+    #statistic{
+        padding: 4px;
+    }
+}
+

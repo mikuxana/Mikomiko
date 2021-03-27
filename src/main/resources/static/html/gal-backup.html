@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏 -Xana-弹幕视频网好玩的二次元分享社区-认真你就输啦 (・ω・)ノ-( ゜-゜)つロ -  </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="../ref/img/icon/favicon.ICO" type="image/x-icon" />
+    <link rel="stylesheet" href="../ref/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../ref/css/public.xana.css">
+    <link rel="stylesheet" href="../ref/css/gal.xana.css">
+
+    <link rel="stylesheet" href="../ref/css/backimg.xana.css">
+    <script src="../ref/js/jquery-3.5.1.min.js"></script>
+    <script src="../ref/js/bootstrap.min.js"></script>
+    <script src="../ref/js/public/backimg.xana.js"></script>
+
+    <script>
+        function clk(obj) {
+            if($(obj).attr('value')==1){
+                $(obj).parent().next().css('display', 'none');
+                $(obj).parent().css('marginBottom', '2%');
+                $(obj).attr('class', 'glyphicon glyphicon-menu-up');
+                $(obj).attr('value', 0);
+            }else{
+                $(obj).parent().next().css('display', 'block');
+                $(obj).parent().css('marginBottom', 0);
+                $(obj).attr('class', 'glyphicon glyphicon-menu-down');
+                $(obj).attr('value', 1);
+            }
+
+        }
+    </script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="/ref/img/logo.png" alt="xana"></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar">
+            <!--搜索框-->
+            <form class="navbar-form navbar-right" action="/html/search.html"  method="get" accept-charset="UTF-8">
+                <div class="form-group input-group input-group-sm">
+                    <input type="text" class="form-control" placeholder="搜索番剧、动画资讯" name="keyword">
+                    <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-danger">
+                                         <span class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                    </span>
+                </div>
+            </form>
+            <!--标签导航-->
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="/" class="">主页</a></li>
+                <li><a href="./html/latest.html" class="nav-text">最新</a></li>
+                <li><a href="./html/bangumi.html" class="nav-text">番剧</a></li>
+                <li><a href="/html/comic.html" class="nav-text">漫画</a></li>
+                <li><a href="/html/galgame.html">游戏</a></li>
+                <li><a href="#" class="nav-text">资讯</a></li>
+                <li><a href="#" class="nav-text">论坛</a></li>
+            </ul>
+            <!--登录/注册-->
+            <ul class="nav navbar-nav navbar-right">
+                <ul id="user-box" class="nav navbar-nav">
+                    <!--个人主页-->
+                    <li><a href="/html/login.html" class="nav-text">登录</a></li>
+                    <li><a href="/html/signUp.html" class="nav-text">注册</a></li>
+                </ul>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">个人中心<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/html/user/home.html">个人中心</a></li>
+                        <li><a href="/html/user/upload.html">投稿</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="header-backimg" style="background-image: url('../ref/img/ad/headerbg.jpg')"></div>
+<div class="backimg">
+    <section>
+        <ul class="cb-slideshow">
+        </ul>
+    </section>
+    <div class="GalMenu GalDropDown" style="top: 70px; left: 480px; opacity: 1;">
+        <div class="circle" id="gal">
+            <div class="ring">
+                <a href="/" title="首页" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+                <a href="javascript:void(0);" title="" class="menuItem next" style="left: 80.3109%; top: 32.5%;">下一页</a>
+                <a href="" title="" class="menuItem" style="left: 80.3109%; top: 67.5%;">留言版</a>
+                <a href="" title="" class="menuItem" style="left: 50%; top: 85%;">热门排行</a>
+                <a href="" title="" class="menuItem" style="left: 19.6891%; top: 67.5%;">更新日志</a>
+                <a href="javascript:void(0);" title="" class="menuItem front" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            </div>
+            <audio id="audio" src="https://www.hacg.me/mp3/onj001.mp3"></audio>
+        </div>
+
+    </div>
+    <div id="overlay" class="magnify" style="display: none;">
+        <div class="large h_img" style=""></div>
+        <img class="small" src="../ref/img/public/rpic.png" width="1920">
+    </div>
+</div>
+
+<div class="container main no-padding red-back-color">
+    <div class="col-sm-9" >
+        <div class="galInfo">
+            <div class="tags">
+                <li class="glyphicon glyphicon-tags"></li>
+                <a href="">纯爱</a>
+                <a href="">拔作</a>
+            </div>
+            <p>美少女万华镜 -神明所创造的少女们-</p>
+            <div class="mark">游戏截图</div>
+            <div class="img">
+                <img src="https://kkgal.coding.net/p/cdn/d/mycdn/git/raw/master/imgs/2020/02/5ddbb32f37be5465.jpg" alt="" class="auto-width">
+                <img src="https://kkgal.coding.net/p/cdn/d/mycdn/git/raw/master/imgs/2020/02/5ddbb32f37be5465.jpg" alt="" class="auto-width">
+                <img src="https://kkgal.coding.net/p/cdn/d/mycdn/git/raw/master/imgs/2020/02/5ddbb32f37be5465.jpg" alt="" class="auto-width">
+                <img src="https://kkgal.coding.net/p/cdn/d/mycdn/git/raw/master/imgs/2020/02/5ddbb32f37be5465.jpg" alt="" class="auto-width">
+            </div>
+
+            <div class="mark">游戏简介 <a href="javascript:void(0);" class="glyphicon glyphicon-menu-down" onclick="clk(this)" value='1'></a></div>
+            <div class="des">
+                主人公高嶺昂晴过着风平浪静的学生生活。<br>
+                然而某天，因意外事故丧生。<br>
+                这时发生了始料未及的事情。<br>
+                本该死去的高嶺昂晴，却苏醒了过来。<br>
+                <br>
+                并且还在——死亡当天早上。<br>
+                大惑不解之下，再次开始了同一天的生活。<br>
+                并非托梦或既视感，一天的经过完全一模一样。<br>
+                尽管对事实感到惊恐万分，仍拜访了死亡的事故场所。<br>
+                事故瞬间——<br>
+                他与“死神”及“操语猫”相遇了。<br>
+                <br>
+                随后被告知。<br>
+                <br>
+                「死亡还无法避免」<br>
+                <br>
+                高嶺昂晴为了摆脱死亡的命运，答应协助死神。<br>
+                这个方法，居然是筹备咖啡馆开张。<br>
+                <br>
+                虽说高嶺昂晴通过时空倒带，避免了“死亡”结局。<br>
+                但仍无法摆脱命中注定的“死亡”。<br>
+                这是百折不挠挑战世界与自己命运的1人男子恋爱故事——也许？<br>
+            </div>
+
+            <div class="mark">汉化STAFF <a href="javascript:void(0);" class="glyphicon glyphicon-menu-down" onclick="clk(this)" value='1'></a></div>
+            <div class="des">
+                组长：番组长伊藤诚（弥生月）hikari（天之圣杯）<br>
+                <br>
+                总监：番组长伊藤诚，hikari<br>
+                <br>
+                修图：漂流的野猪，一条大河，橘落叶<br>
+                <br>
+                视频：A5，番组长伊藤诚，路过的闲人<br>
+                <br>
+                程序：天殇，WARGBM<br>
+                <br>
+                共通线<br>
+                初翻：番组长伊藤诚，kumo，丿秋风悲画扇，路过的闲人，NoNo，Kanon，朝丸，御坂小喵，爱理，紫耀晨光，ハルカ，金属寒，keksen，时雨的胖次真香，东条，晴岚，香草，咲良鱼，如月酱，落日，perfectlaugh，阿瑟，乔木，Olpha，Alone，冈格尼尔，kohaku，hikari<br>
+                校对：番组长伊藤诚，ハルカ，汐璃，紫耀晨光<br>
+                <br>
+                明月栞那线<br>
+                初翻：艾丽莎，阿虚，北流，乔木，ハルカ<br>
+                校对：艾丽莎，hikari，洛君柒，绅豪<br>
+                <br>
+                四季夏目线<br>
+                初翻：hikari，kumo，apathetic_virus，A5，工口大将军<br>
+                校对：出水悠莉，北流，淡雪，咕噜<br>
+                <br>
+                火打谷爱衣线<br>
+                初翻：m1sect，Deuterium，朝丸，Vanilla，夜凉铭奈<br>
+                校对：有希女士，たけし，Aufallinger，甘蔗，沉默的游隼<br>
+                <br>
+                凉音线<br>
+                初翻：夜凉铭奈，子弹君，逍遥我叹，邓格拉斯，无忧无虑<br>
+                校对：晴岚，紫耀晨光，蓝光<br>
+                <br>
+                墨染希线<br>
+                初翻：朝丸，Alone，紫耀晨光，晴岚，蓝光，雨月，缶音，逍遥我叹<br>
+                校对：ハルカ，汐璃，NoNo，紫耀晨光 ，琴里<br>
+                <br>
+                测试：番组长伊藤诚，绅豪，艶花，ハルカ，盼衣欲归，出水悠莉，乔木，Kyouma，工口大将军，我就是鱼人的化身，Alone，阿柚，Deuterium，咸鱼王·饭，夜凉铭奈，蓝光，逍遥，晴岚<br>
+            </div>
+
+
+            <div class="mark">资源分享</div>
+            <div class="src">
+                <p><li class="glyphicon glyphicon-star"></li> 提取密码 <div class="pwd">3344</div></p>
+                <p><li class="glyphicon glyphicon-star"></li> 解压密码 <div class="pwd">xana.li</div></p>
+                <p><a href="https://pan.baidu.com/s/1uoaZNg8lglmUiMlDrblZdQ" class="btn btn-success btn-block no-padding">百度网盘</a></p>
+            </div>
+            <div class="src">
+                <p><li class="glyphicon glyphicon-star"></li> 提取密码 <div class="pwd">3344</div></p>
+                <p><li class="glyphicon glyphicon-star"></li> 解压密码 <div class="pwd">xana.li</div></p>
+                <p><a href="https://pan.baidu.com/s/1uoaZNg8lglmUiMlDrblZdQ" class="btn btn-success btn-block no-padding">磁力链接</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3 no-padding">
+        <div class="user">
+            <div class="mark-body">
+                <img class="img-circle auto-height" src="../ref/img/icon/user.gif" alt="">
+                <span class="text-info mark-info">UP 主</span>
+                <span class="user-tip">
+                    认真你就输啦 (・ω・)ノ
+                </span>
+            </div>
+            <div class="auto-width-height-ratio">
+                <div class="auto-ratio">
+                    <a href="#">
+                        <div class="user-box">
+                            <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle auto-height icon-border">
+                            <span>某傲娇的只眼姬</span>
+                        </div>
+                    </a>
+                    <div class="auto-width user-img">
+                        <img src="../ref/img/user-img/illust_40155534_20191112_212647.jpg" alt="" class="auto-width">
+                    </div>
+                    <span class="user-login">
+                        <a href="#" class="btn btn-danger btn-sm">关注</a>&nbsp;
+                        <a href="#" class="btn btn-info btn-sm">私信</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="rank">
+            <div class="mark-body">
+                <img class="img-circle auto-height" src="../ref/img/icon/rank.gif" alt="">
+                <span class="text-info mark-info">排行榜</span>
+            </div>
+
+            <a href="#">
+                <div class="auto-width-height-ratio">
+                    <div class="auto-ratio">
+                        <div class="auto-height rank-imgbox">
+                            <img src="../ref/img/rank/005ODKsIgw1faokcm9orzj31ek0ukwjx.jpg" alt="" class="auto-adjust">
+                        </div>
+
+                        <div class="auto-height rank-textbox">
+
+                            <div>
+                                <span class="rank-title">游戏人生</span><br>
+                                <a href="#" class="btn no-padding rank-up">UP：<span>某傲娇的只眼姬</span></a><br>
+                                <span class="rank-play-comment" >
+                                                    <span class="glyphicon glyphicon-play">10000</span>&nbsp;
+                                                    <span class="glyphicon glyphicon-comment">1000</span>
+                                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="auto-width-height-ratio">
+                    <div class="auto-ratio">
+                        <div class="auto-height rank-imgbox">
+                            <img src="../ref/img/rank/005ODKsIgw1faokcm9orzj31ek0ukwjx.jpg" alt="" class="auto-adjust">
+                        </div>
+
+                        <div class="auto-height rank-textbox">
+
+                            <div>
+                                <span class="rank-title">游戏人生</span><br>
+                                <a href="#" class="btn no-padding rank-up">UP：<span>某傲娇的只眼姬</span></a><br>
+                                <span class="rank-play-comment" >
+                                                    <span class="glyphicon glyphicon-play">10000</span>&nbsp;
+                                                    <span class="glyphicon glyphicon-comment">1000</span>
+                                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="auto-width-height-ratio">
+                    <div class="auto-ratio">
+                        <div class="auto-height rank-imgbox">
+                            <img src="../ref/img/rank/005ODKsIgw1faokcm9orzj31ek0ukwjx.jpg" alt="" class="auto-adjust">
+                        </div>
+
+                        <div class="auto-height rank-textbox">
+
+                            <div>
+                                <span class="rank-title">游戏人生</span><br>
+                                <a href="#" class="btn no-padding rank-up">UP：<span>某傲娇的只眼姬</span></a><br>
+                                <span class="rank-play-comment" >
+                                                    <span class="glyphicon glyphicon-play">10000</span>&nbsp;
+                                                    <span class="glyphicon glyphicon-comment">1000</span>
+                                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="auto-width-height-ratio">
+                    <div class="auto-ratio">
+                        <div class="auto-height rank-imgbox">
+                            <img src="../ref/img/rank/005ODKsIgw1faokcm9orzj31ek0ukwjx.jpg" alt="" class="auto-adjust">
+                        </div>
+
+                        <div class="auto-height rank-textbox">
+
+                            <div>
+                                <span class="rank-title">游戏人生</span><br>
+                                <a href="#" class="btn no-padding rank-up">UP：<span>某傲娇的只眼姬</span></a><br>
+                                <span class="rank-play-comment" >
+                                                    <span class="glyphicon glyphicon-play">10000</span>&nbsp;
+                                                    <span class="glyphicon glyphicon-comment">1000</span>
+                                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="auto-width-height-ratio">
+                    <div class="auto-ratio">
+                        <div class="auto-height rank-imgbox">
+                            <img src="../ref/img/rank/005ODKsIgw1faokcm9orzj31ek0ukwjx.jpg" alt="" class="auto-adjust">
+                        </div>
+
+                        <div class="auto-height rank-textbox">
+
+                            <div>
+                                <span class="rank-title">游戏人生</span><br>
+                                <a href="#" class="btn no-padding rank-up">UP：<span>某傲娇的只眼姬</span></a><br>
+                                <span class="rank-play-comment" >
+                                                    <span class="glyphicon glyphicon-play">10000</span>&nbsp;
+                                                    <span class="glyphicon glyphicon-comment">1000</span>
+                                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="auto-width-height-ratio">
+                    <div class="auto-ratio">
+                        <div class="auto-height rank-imgbox">
+                            <img src="../ref/img/rank/005ODKsIgw1faokcm9orzj31ek0ukwjx.jpg" alt="" class="auto-adjust">
+                        </div>
+
+                        <div class="auto-height rank-textbox">
+
+                            <div>
+                                <span class="rank-title">游戏人生</span><br>
+                                <a href="#" class="btn no-padding rank-up">UP：<span>某傲娇的只眼姬</span></a><br>
+                                <span class="rank-play-comment" >
+                                                    <span class="glyphicon glyphicon-play">10000</span>&nbsp;
+                                                    <span class="glyphicon glyphicon-comment">1000</span>
+                                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="auto-width-height-ratio">
+                    <div class="auto-ratio">
+                        <div class="auto-height rank-imgbox">
+                            <img src="../ref/img/rank/005ODKsIgw1faokcm9orzj31ek0ukwjx.jpg" alt="" class="auto-adjust">
+                        </div>
+
+                        <div class="auto-height rank-textbox">
+
+                            <div>
+                                <span class="rank-title">游戏人生</span><br>
+                                <a href="#" class="btn no-padding rank-up">UP：<span>某傲娇的只眼姬</span></a><br>
+                                <span class="rank-play-comment" >
+                                                    <span class="glyphicon glyphicon-play">10000</span>&nbsp;
+                                                    <span class="glyphicon glyphicon-comment">1000</span>
+                                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="auto-width-height-ratio">
+                    <div class="auto-ratio">
+                        <div class="auto-height rank-imgbox">
+                            <img src="../ref/img/rank/005ODKsIgw1faokcm9orzj31ek0ukwjx.jpg" alt="" class="auto-adjust">
+                        </div>
+
+                        <div class="auto-height rank-textbox">
+
+                            <div>
+                                <span class="rank-title">游戏人生</span><br>
+                                <a href="#" class="btn no-padding rank-up">UP：<span>某傲娇的只眼姬</span></a><br>
+                                <span class="rank-play-comment" >
+                                                    <span class="glyphicon glyphicon-play">10000</span>&nbsp;
+                                                    <span class="glyphicon glyphicon-comment">1000</span>
+                                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="auto-width-height-ratio">
+                    <div class="auto-ratio">
+                        <div class="auto-height rank-imgbox">
+                            <img src="../ref/img/rank/005ODKsIgw1faokcm9orzj31ek0ukwjx.jpg" alt="" class="auto-adjust">
+                        </div>
+
+                        <div class="auto-height rank-textbox">
+
+                            <div>
+                                <span class="rank-title">游戏人生</span><br>
+                                <a href="#" class="btn no-padding rank-up">UP：<span>某傲娇的只眼姬</span></a><br>
+                                <span class="rank-play-comment" >
+                                                    <span class="glyphicon glyphicon-play">10000</span>&nbsp;
+                                                    <span class="glyphicon glyphicon-comment">1000</span>
+                                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="auto-width-height-ratio">
+                    <div class="auto-ratio">
+                        <div class="auto-height rank-imgbox">
+                            <img src="../ref/img/rank/005ODKsIgw1faokcm9orzj31ek0ukwjx.jpg" alt="" class="auto-adjust">
+                        </div>
+
+                        <div class="auto-height rank-textbox">
+
+                            <div>
+                                <span class="rank-title">游戏人生</span><br>
+                                <a href="#" class="btn no-padding rank-up">UP：<span>某傲娇的只眼姬</span></a><br>
+                                <span class="rank-play-comment" >
+                                                    <span class="glyphicon glyphicon-play">10000</span>&nbsp;
+                                                    <span class="glyphicon glyphicon-comment">1000</span>
+                                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>导肮</title>
+	<link rel="stylesheet" href="../ref/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../ref/css/public.xana.css" >
+	<link rel="stylesheet" href="../ref/css/backimg.xana.css">
+
+	<script src="../ref/js/jquery-3.5.1.min.js"></script>
+
+	<script src="../ref/js/public/search.xana.js"></script>
+	<script src="../ref/js/public/backimg.xana.js"></script>
+
+	<script>
+		$(function () {
+			$('#hd .sub>a').mouseover(function () {
+				$(this).next().css('display', 'block');
+			}).mouseout(function () {
+				$(this).next().css('display', 'none');
+			});
+
+			$('#usernav').mouseover(function () {
+				$(this).next().css('display', 'block');
+			}).mouseout(function () {
+			$(this).next().css('display', 'none').mouseover(function () {
+				$(this).css('display', 'block');
+			}).mouseout(function () {
+				$(this).css('display', 'none');
+			});
+		})
+
+			var FixedBox=function(el){
+				this.element=el;
+				this.BoxY=getXY(this.element).y;
+			}
+			FixedBox.prototype={
+				setCss:function(){
+					var windowST=(document.compatMode && document.compatMode!="CSS1Compat")? document.body.scrollTop:document.documentElement.scrollTop||window.pageYOffset;
+					if(windowST>this.BoxY){
+						this.element.style.cssText=" position:fixed; top:0px;  width:100%; min-width:1180px; background:rgba(255,255,255,0.9); z-index:100; padding-bottom:0px;  margin-top:0;  padding:0; box-shadow: 0 3px 3px rgba(0,0,0,0.37); ";
+					}else{
+						this.element.style.cssText="";
+					}
+				}
+			};
+			//添加事件
+			function addEvent(elm, evType, fn, useCapture) {
+				if (elm.addEventListener) {
+					elm.addEventListener(evType, fn, useCapture);
+					return true;
+				}else if (elm.attachEvent) {
+					var r = elm.attachEvent('on' + evType, fn);
+					return r;
+				}
+				else {
+					elm['on' + evType] = fn;
+				}
+			}
+			//获取元素的XY坐标；
+			function getXY(el) {
+				return document.documentElement.getBoundingClientRect && (function() {//取元素坐标，如元素或其上层元素设置position relative
+					var pos = el.getBoundingClientRect();
+					return { x: pos.left + document.documentElement.scrollLeft, y: pos.top + document.documentElement.scrollTop };
+				})() || (function() {
+					var _x = 0, _y = 0;
+					do {
+						_x += el.offsetLeft;
+						_y += el.offsetTop;
+					} while (el = el.offsetParent);
+					return { x: _x, y: _y };
+				})();
+			}
+			//实例化；
+			var divA=new FixedBox(document.getElementById("deannav"));
+			addEvent(window,"scroll",function(){
+				divA.setCss();
+			});
+		})
+	</script>
+</head>
+<body>
+
+
+<div class="backimg">
+	<section>
+		<ul class="cb-slideshow">
+		</ul>
+	</section>
+	<audio id="audio" src="https://www.hacg.me/mp3/onj001.mp3"></audio>
+	<div id="overlay" class="magnify" style="display: none;">
+		<div class="large h_img" style=""></div>
+		<img class="small" src="../ref/img/public/rpic.png" width="1920">
+	</div>
+</div>
+
+<nav class="navbar navbar-fixed-top" id="hdSmart">
+  <div class="container-fluid">
+	<div class="navbar-header">
+	  <button type="button" class="navbar-toggle collapsed pull-right" data-toggle="offcanvas">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar" style="background-color: rgba(0,0,0,0.5);"></span>
+		<span class="icon-bar" style="background-color: rgba(0,0,0,0.5);"></span>
+		<span class="icon-bar" style="background-color: rgba(0,0,0,0.5);"></span>
+	  </button>
+	  <a class="navbar-brand" href="/"><img src="../ref/img/logo.png" alt=""></a>
+	</div>
+	<div id="navbar" class="collapse navbar-collapse sidebar-offcanvas">
+	  <ul class="nav navbar-nav">
+		  <li><a href="/"><img src="../ref/img/icon/all/index.png">主页</a></li>
+		  <li><a href=""><img src="../ref/img/icon/all/latest.png">最新</a></li>
+		  <li><a href="/bangumi/"><img src="../ref/img/icon/all/bangumi.png">番剧</a></li>
+		  <li><a href=""><img src="../ref/img/icon/all/comic.png">漫画</a></li>
+		  <li><a href="/game/"><img src="../ref/img/icon/all/game.png">游戏</a></li>
+		  <li><a href=""><img src="../ref/img/icon/all/music.png">音乐</a></li>
+		  <li><a href=""><img src="../ref/img/icon/all/message.png">资讯</a></li>
+		  <li>
+			  <div class="nav search smart">
+				  <input type="text" class="key re">
+				  <a class="re" href="/search/bangumi/"><span class="glyphicon glyphicon-search"></span></a>
+			  </div>
+		  </li>
+	  </ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="/user/login">登录</a></li>
+			<li><a href="/user/signUp">注册</a></li>
+		</ul>
+	</div>
+  </div>
+</nav>
+<div id="hd">
+	<nav>
+		<div class="logo">
+			<a href="/" title="主页">
+				<img src="../ref/img/logo.png" alt="">
+			</a>
+		</div>
+		<div id="loginDiv">
+			<a href="/login">登录</a>
+			<a href="/signUp">注册</a>
+			<a href="/signUp">忘记密码?</a>
+			<a href="/signUp">QQ登录</a>
+			<a href="/signUp">微信登录</a>
+		</div>
+		<div id="userdiv">
+			<a href="/user/" id="usernav"><img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">某傲娇的只眼姬</a>
+			<ul class="nav navbar">
+				<div id="username">某傲娇的只眼姬</div>
+				<li id="lv">Lv6</li>
+				<li id="uid">UID:100000</li>
+				<li><a href=""><img src="../ref/img/icon/all/user.png">个人中心</a></li>
+				<li><a href=""><img src="../ref/img/icon/all/upload.png" alt="">投稿管理</a></li>
+				<li><a href=""><img src="../ref/img/icon/all/order.png" alt="">订单中心</a></li>
+				<li><a href=""><img src="../ref/img/icon/all/exit.png" alt="">退出</a></li>
+			</ul>
+			<a href="">动态</a>
+			<a href="">收藏</a>
+			<a href="">历史</a>
+		</div>
+		<div class="sub">
+			<a href="javascript:void(0);">扫码+关注</a>
+			<img src="../ref/img/QRcode/app-download.png" alt="">
+		</div>
+		<div class="search">
+			<input type="text" placeholder="魔女之旅..." class="key re">
+			<a href="/bangumi/" class="re"><span class="glyphicon glyphicon-search"></span></a>
+		</div>
+	</nav>
+
+	<div class="headerbg" style="background-image: url('../ref/img/ad/headerbg.jpg')">
+	</div>
+	<div id="deannav" class="container no-padding">
+		<a href="/">门户</a>
+		<a href="#">最新热漫</a>
+		<a href="#">视频专区</a>
+		<a href="#">音乐</a>
+		<a href="#">漫画</a>
+		<a href="#">游戏</a>
+		<a href="#">资讯</a>
+	</div>
+	<!--侧边工具栏-->
+	<div class="side_bar">
+		<ul>
+			<li class="side_bar_tel">
+				<i><img src="../ref/img/icon/all/mail.png" alt="" title="电子邮箱"></i>
+				<div class="deansidehidden">
+					<p>xana@qq.com</p>
+				</div>
+			</li>
+			<li class="side_bar_weixin">
+				<i><img src="../ref/img/icon/all/qq.png" alt="" title="QQ"></i>
+				<div class="deansidehidden">
+					<img src="../ref/img/QRcode/me.jpg" alt="">
+					<p>联系站长QQ</p>
+				</div>
+			</li>
+			<li class="side_bar_top">
+
+				<i onclick="window.scroll({ top: 0, behavior: 'smooth'})" title="回到顶部">
+					<img src="../ref/img/icon/all/top.png" alt="">
+				</i>
+				<div class="deansidehidden">
+					<p>返回顶部</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+	</div>
+
+</body>
+</html>

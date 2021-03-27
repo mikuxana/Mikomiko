@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8" >
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>注册 mikomiko 弹幕视频网好玩的二次元分享社区-认真你就输啦 (・ω・)ノ-( ゜-゜)つロ -  </title>
+    <script th:inline="javascript" th:if="${userInfo}">
+        location.href= "/";
+    </script>
+    <link rel="shortcut icon" href="/ref/img/icon/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/ref/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/ref/css/public.xana.css">
+    <link rel="stylesheet" href="/ref/css/signUp.xana.css">
+    <script src="/ref/js/jquery-3.5.1.min.js"></script>
+    <script src="/ref/js/bootstrap.min.js"></script>
+    <script src="/ref/js/verify.xana.js"></script>
+
+</head>
+<body>
+    <!-- 导航条 -->
+    <div id="hd">
+        <nav style="position: fixed; top: 0; z-index: 100">
+            <div class="logo">
+                <a href="/" title="主页">
+                    <img src="/ref/img/logo.png" alt="">
+                </a>
+            </div>
+            <div id="hdtags" style="">
+                <a href="/">门户</a>
+                <a href="#">最新热漫</a>
+                <a href="#">视频专区</a>
+                <a href="#">音乐</a>
+                <a href="#">漫画</a>
+                <a href="#">游戏</a>
+                <a href="#">资讯</a>
+            </div>
+
+            <div id="loginDiv" th:if="!${userInfo}">
+                <a href="/login">登录</a>
+                <a href="/signUp">注册</a>
+                <a href="/signUp">忘记密码?</a>
+                <a href="/signUp">QQ登录</a>
+                <a href="/signUp">微信登录</a>
+            </div>
+            <div id="userdiv" th:if="${userInfo}">
+                <a th:href="|/user/${userInfo.uid}|" id="usernav"><img th:src="|${userInfo.pic}|" alt="" class="img-circle" th:utext="${userInfo.username}"></a>
+                <ul class="nav navbar">
+                    <div id="usr" th:utext="${userInfo.username}"></div>
+                    <li id="lv">Lv6</li>
+                    <li id="uid" th:utext="|UID: ${userInfo.uid}|"></li>
+                    <li><a th:href="|/user/${userInfo.uid}|"><img src="/ref/img/icon/all/user.png">个人中心</a></li>
+                    <li><a th:href="|/up/${userInfo.uid}|"><img src="/ref/img/icon/all/upload.png" alt="">投稿管理</a></li>
+                    <li><a th:href="|/order/${userInfo.uid}|"><img src="/ref/img/icon/all/order.png" alt="">订单中心</a></li>
+                    <li><a href="/logout"><img src="/ref/img/icon/all/exit.png" alt="">退出</a></li>
+                </ul>
+                <a th:href="|/message/${userInfo.uid}|">动态</a>
+                <a th:href="|/favorite/${userInfo.uid}|">收藏</a>
+                <a th:href="|/history/${userInfo.uid}|">历史</a>
+            </div>
+            <div class="sub">
+                <a href="javascript:void(0);">扫码+关注</a>
+                <img src="/ref/img/QRcode/app-download.png" alt="">
+            </div>
+            <form class="search" action="/search/bangumi/" method="get" target="_blank">
+                <input type="text" placeholder="魔女之旅..." class="key" name="key">
+                <button type="submit"><span class="glyphicon glyphicon-search"></span></button>
+            </form>
+        </nav>
+        </div>
+
+        <!--侧边工具栏-->
+        <div class="side_bar">
+            <ul>
+                <li class="side_bar_tel">
+                    <i><img src="/ref/img/icon/all/mail.png" alt="" title="电子邮箱"></i>
+                    <div class="deansidehidden">
+                        <p>xana@qq.com</p>
+                    </div>
+                </li>
+                <li class="side_bar_weixin">
+                    <i><img src="/ref/img/icon/all/qq.png" alt="" title="QQ"></i>
+                    <div class="deansidehidden">
+                        <img src="/ref/img/QRcode/me.jpg" alt="">
+                        <p>联系站长QQ</p>
+                    </div>
+                </li>
+                <li class="side_bar_top">
+
+                    <i onclick="window.scroll({ top: 0, behavior: 'smooth'})" title="回到顶部">
+                        <img src="/ref/img/icon/all/top.png" alt="">
+                    </i>
+                    <div class="deansidehidden">
+                        <p>返回顶部</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--主体-->
+    <div class="container-fluid" style="position: relative; background-image: url('/ref/img/backimg/signUp.jpg'); height: 800px;">
+        <div class="sign-up-box">
+            <div class="sign-up-title">注册 <a href="/login" class="btn no-padding">返回登录</a></div>
+                    <div id="user">
+                        <input type="text" placeholder="昵称" class="line" name="username" maxlength="16">
+                        <span></span>
+                    </div>
+                    <div id="pass">
+                        <input type="password" placeholder="密码" class="line" name="password" maxlength="32">
+                        <span></span>
+                    </div>
+
+                    <div id="secPass">
+                        <input type="password" placeholder="确认密码" class="line" maxlength="32">
+                        <span></span>
+                    </div>
+                    <div id="smart">
+                        <input type="text" placeholder="手机号" class="line" name="smart" maxlength="11">
+                        <span></span>
+                    </div>
+                    <div id="verify">
+                        <input type="text" placeholder="验证码" class="line" maxlength="6">
+                        <span></span>
+                    </div>
+                    <span class="code"></span>
+                    <input id="signUp" type="submit" class="btn btn-block btn-danger" value="注册">
+        </div>
+
+        <div id="myModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content" style="background-color: rgba(255, 255, 255, 0.66); text-align: center; padding: 3px;">
+                    <span style="font-size: 15px; color: #FD4C5B;" id="username"></span><br> いっらいしゃませ！
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>子页面</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+<div style="width:300px; height: 180px; border:1px solid #000">
+    请输入一些值：<input type="text" id="text1" />
+    <button onclick="sendMessageToParent()">设置</button>
+    <button onclick="click()">
+        点击调用父元素的方法
+    </button>
+</div>
+<script>
+    function sendMessageToParent() {
+        //设置test键值下的内容等于input框中的内容
+        var txt = document.getElementById('text1').value;
+        // 下面也可以用（window.parent.postMessage({txt:txt});） top代表父元素的最顶层
+        window.top.postMessage({ txt: txt });
+    }
+    // 调用父元素的方法
+    $(function () {
+        parent.fun();
+    })
+</script>
+</body>
+
+</html>

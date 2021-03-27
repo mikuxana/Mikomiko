@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8">
+    <meta name ="viewport"content ="width = device-width; initial-scale = 1.0; maximum-scale = 1.0; minimum-scale = 1.0;" />
+    <title></title>
+    <link rel="shortcut icon" href="../ref/img/icon/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../ref/css/bootstrap.min.css">
+    <script src="../ref/js/jquery-3.5.1.min.js"></script>
+    <script src="../ref/js/cv.xana.js"> </script>
+    <style>
+        .commentDiv{
+            position: relative;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.22);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            font-size: 70%;
+            transition: all 0.3s;
+        }
+        .commentDiv:hover{
+            box-shadow: 0 3px 7px 0 rgba(0,0,0,0.27);
+        }
+        .comment>i{
+            cursor: pointer;
+            color: #8498c0;
+            font-size: 70%;
+        }
+        .commentDiv>img{
+            width: 50px;
+        }
+        .commentDiv>h5{
+            position: absolute;
+            top: 5px;
+            left: 60px;
+        }
+        .commentDiv>h5>a{
+            color: black;
+            text-decoration: none;
+        }
+        .commentDiv>h5>a:hover{
+            color: #ff6f83;
+        }
+        .commentDiv>h5>i{
+            color: silver;
+            margin-left: 10px;
+        }
+        .commentDiv>.comment{
+            margin-left: 50px;
+        }
+        .commentDiv>.comment>.text{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 30;
+            -webkit-box-orient: vertical;
+        }
+        .commentDiv>.comment>i{
+            color: silver;
+        }
+
+        .commentDiv>.comment>.starAndrepaly{
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .commentDiv>.comment>.starAndrepaly>a{
+            cursor: pointer;
+            color: black;
+            text-decoration: none;
+        }
+        .commentDiv>.comment>.starAndrepaly>a:hover{
+            color: #ff6f83;
+        }
+        .commentDiv>.comment>.starAndrepaly>a>li{
+            font-size: 15px;
+        }
+
+        .repDiv{
+            padding: 10px;
+            max-height: 1000px;
+            background-color: rgba(192, 192, 192, 0.11);
+            overflow-y: scroll;
+            border-radius: 5px;
+        }
+        .replyDiv{
+            display: none;
+            margin-bottom: 27px;
+        }
+        .replyDiv>textarea{
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.6);
+            font-size: 15px;
+            width: 100%;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+        .replyDiv>.btn{
+            padding:2px 10px 2px 10px;
+            float: right;
+        }
+        .repalyDiv>textarea:hover,textarea:focus{
+            border: #ff6f83 1px solid;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+            background-color: #F5F5F5;
+        }
+
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.24);
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.14);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 3px rgba(192, 192, 192, 0.68);
+            background-color: rgba(17, 14, 246, 0.64);
+        }
+
+
+        body{
+            background: transparent;
+            padding:10px;
+        }
+
+        .pager li>a{
+            background-color: transparent;
+            color: black;
+            transition: all 0.25s;
+        }
+        .pager li>a:hover, li>input:focus{
+            color: rgba(255, 69, 0, 0.78);
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        .pager li>input{
+            outline: none;
+            background-color: transparent;
+            border-radius: 3px;
+            width: 50px;
+            border: 1px silver solid;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        @media screen and (max-width: 756px){
+            .commentDiv>img{
+                width: 40px;
+            }
+            .commentDiv>h5{
+                font-size: 13px;
+                left: 50px;
+            }
+            .commentDiv>.comment{
+                margin-left: 20px;
+            }
+            .commentDiv>.comment>.text{
+                -webkit-line-clamp: 10;
+            }
+            .replyDiv>textarea,.replyDiv>.btn,.pager li>a {
+                font-size: 12px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="commentDiv">
+        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+        <h5><a href="">某傲娇的只眼姬</a></h5>
+        <div class="comment">
+            <div class="replyDiv" style="display: block" th:if="${userInfo}">
+                <textarea rows="7" placeholder="评论一时爽，一直评论一直爽。(˶‾᷄ ⁻̫ ‾᷅˵)"></textarea>
+                <a class="btn btn-danger">评论</a>
+            </div>
+            <div class="replyDiv" style="display: block" th:if="!${userInfo}">
+                <textarea rows="7" placeholder="登录后才能评论哦。(˶‾᷄ ⁻̫ ‾᷅˵)" disabled></textarea>
+                <a class="btn btn-danger" disabled>评论</a>
+            </div>
+        </div>
+    </div>
+    <div class="commentArea">
+        <div class="commentDiv">
+            <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+            <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+            <div class="comment">
+                <div class="text">
+                    曾经经有一对夫妻，他们很强，却从未赢过....<br>
+                    现在有一对兄妹，他们很弱，却从未输过...<br>
+                    那对夫妻:里克和休比<br>
+                    那对兄妹:空和白<br>
+                    那对夫妻勇敢地挑战人生，虽然到最后都没取得胜利，却终止了无止境的大战..<br>
+                    那对兄妹懦弱地逃避人生，虽然到现在都没尝到失败，却难以在现实社会立足..<br>
+                    但勇敢的夫妻也会因为对方的离去痛哭流涕,協弱的兄妹也会因为对方的支持睥睨天下<br>
+                    夫妻和兄妹完全相反，却又十分相似<br>
+                    夫妻是兄妹的前辈，兄妹是夫妻的继承<br>
+                    里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                    休比:下次..绝对不会放手了..<br>
+                    空:空和白一起才是空白!空白永不败北!<br>
+                    白:我和空..不能相隔太远..<br>
+                    我希望那对夫妻这次能赢...<br>
+                    我希望那对兄妹仍然能赢...<br>
+                    无论如何，他们都改变了世界或即将改变世界<br>
+                    既然这样，那么...<br>
+                    来吧!<br>
+                    ゲームを始めましょう！(开始游戏吧! )
+                </div>
+                <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                    <div class="replyDiv" value=0>
+                        <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                        <a class="btn btn-danger">回复</a>
+                    </div>
+                </div>
+
+                <div class="repDiv">
+                    <div class="commentDiv">
+                        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+                        <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+                        <div class="comment">
+                            <div class="text">
+                                回复 <a href="#">@某傲娇的只眼姬：<br></a>里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                                休比:下次..绝对不会放手了..<br>
+                                空:空和白一起才是空白!空白永不败北!<br>
+                                白:我和空..不能相隔太远..<br>
+                                さぁー　ゲームを始めましょう！(开始游戏吧! )
+                            </div>
+                            <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                            <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                                <div class="replyDiv" value=0>
+                                    <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                                    <a class="btn btn-danger">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commentDiv">
+                        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+                        <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+                        <div class="comment">
+                            <div class="text">
+                                回复 <a href="#">@某傲娇的只眼姬：<br></a>里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                                休比:下次..绝对不会放手了..<br>
+                                空:空和白一起才是空白!空白永不败北!<br>
+                                白:我和空..不能相隔太远..<br>
+                                さぁー　ゲームを始めましょう！(开始游戏吧! )
+                            </div>
+                            <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                            <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                                <div class="replyDiv" value=0>
+                                    <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                                    <a class="btn btn-danger">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commentDiv">
+                        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+                        <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+                        <div class="comment">
+                            <div class="text">
+                                回复 <a href="#">@某傲娇的只眼姬：<br></a>里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                                休比:下次..绝对不会放手了..<br>
+                                空:空和白一起才是空白!空白永不败北!<br>
+                                白:我和空..不能相隔太远..<br>
+                                さぁー　ゲームを始めましょう！(开始游戏吧! )
+                            </div>
+                            <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                            <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                                <div class="replyDiv" value=0>
+                                    <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                                    <a class="btn btn-danger">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commentDiv">
+                        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+                        <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+                        <div class="comment">
+                            <div class="text">
+                                回复 <a href="#">@某傲娇的只眼姬：<br></a>里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                                休比:下次..绝对不会放手了..<br>
+                                空:空和白一起才是空白!空白永不败北!<br>
+                                白:我和空..不能相隔太远..<br>
+                                さぁー　ゲームを始めましょう！(开始游戏吧! )
+                            </div>
+                            <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                            <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                                <div class="replyDiv" value=0>
+                                    <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                                    <a class="btn btn-danger">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commentDiv">
+                        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+                        <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+                        <div class="comment">
+                            <div class="text">
+                                回复 <a href="#">@某傲娇的只眼姬：<br></a>里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                                休比:下次..绝对不会放手了..<br>
+                                空:空和白一起才是空白!空白永不败北!<br>
+                                白:我和空..不能相隔太远..<br>
+                                さぁー　ゲームを始めましょう！(开始游戏吧! )
+                            </div>
+                            <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                            <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                                <div class="replyDiv" value=0>
+                                    <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                                    <a class="btn btn-danger">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commentDiv">
+                        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+                        <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+                        <div class="comment">
+                            <div class="text">
+                                回复 <a href="#">@某傲娇的只眼姬：<br></a>里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                                休比:下次..绝对不会放手了..<br>
+                                空:空和白一起才是空白!空白永不败北!<br>
+                                白:我和空..不能相隔太远..<br>
+                                さぁー　ゲームを始めましょう！(开始游戏吧! )
+                            </div>
+                            <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                            <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                                <div class="replyDiv" value=0>
+                                    <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                                    <a class="btn btn-danger">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="commentDiv">
+            <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+            <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+            <div class="comment">
+                <div class="text">
+                    曾经经有一对夫妻，他们很强，却从未赢过....<br>
+                    现在有一对兄妹，他们很弱，却从未输过...<br>
+                    那对夫妻:里克和休比<br>
+                    那对兄妹:空和白<br>
+                    那对夫妻勇敢地挑战人生，虽然到最后都没取得胜利，却终止了无止境的大战..<br>
+                    那对兄妹懦弱地逃避人生，虽然到现在都没尝到失败，却难以在现实社会立足..<br>
+                    但勇敢的夫妻也会因为对方的离去痛哭流涕,協弱的兄妹也会因为对方的支持睥睨天下<br>
+                    夫妻和兄妹完全相反，却又十分相似<br>
+                    夫妻是兄妹的前辈，兄妹是夫妻的继承<br>
+                    里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                    休比:下次..绝对不会放手了..<br>
+                    空:空和白一起才是空白!空白永不败北!<br>
+                    白:我和空..不能相隔太远..<br>
+                    我希望那对夫妻这次能赢...<br>
+                    我希望那对兄妹仍然能赢...<br>
+                    无论如何，他们都改变了世界或即将改变世界<br>
+                    既然这样，那么...<br>
+                    来吧!<br>
+                    ゲームを始めましょう！(开始游戏吧! )
+                </div>
+                <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                    <div class="replyDiv" value=0>
+                        <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                        <a class="btn btn-danger">回复</a>
+                    </div>
+                </div>
+
+                <div class="repDiv">
+                    <div class="commentDiv">
+                        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+                        <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+                        <div class="comment">
+                            <div class="text">
+                                回复 <a href="#">@某傲娇的只眼姬：<br></a>里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                                休比:下次..绝对不会放手了..<br>
+                                空:空和白一起才是空白!空白永不败北!<br>
+                                白:我和空..不能相隔太远..<br>
+                                さぁー　ゲームを始めましょう！(开始游戏吧! )
+                            </div>
+                            <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                            <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                                <div class="replyDiv" value=0>
+                                    <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                                    <a class="btn btn-danger">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commentDiv">
+                        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+                        <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+                        <div class="comment">
+                            <div class="text">
+                                回复 <a href="#">@某傲娇的只眼姬：<br></a>里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                                休比:下次..绝对不会放手了..<br>
+                                空:空和白一起才是空白!空白永不败北!<br>
+                                白:我和空..不能相隔太远..<br>
+                                さぁー　ゲームを始めましょう！(开始游戏吧! )
+                            </div>
+                            <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                            <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                                <div class="replyDiv" value=0>
+                                    <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                                    <a class="btn btn-danger">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commentDiv">
+                        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+                        <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+                        <div class="comment">
+                            <div class="text">
+                                回复 <a href="#">@某傲娇的只眼姬：<br></a>里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                                休比:下次..绝对不会放手了..<br>
+                                空:空和白一起才是空白!空白永不败北!<br>
+                                白:我和空..不能相隔太远..<br>
+                                さぁー　ゲームを始めましょう！(开始游戏吧! )
+                            </div>
+                            <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                            <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                                <div class="replyDiv" value=0>
+                                    <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                                    <a class="btn btn-danger">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commentDiv">
+                        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+                        <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+                        <div class="comment">
+                            <div class="text">
+                                回复 <a href="#">@某傲娇的只眼姬：<br></a>里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                                休比:下次..绝对不会放手了..<br>
+                                空:空和白一起才是空白!空白永不败北!<br>
+                                白:我和空..不能相隔太远..<br>
+                                さぁー　ゲームを始めましょう！(开始游戏吧! )
+                            </div>
+                            <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                            <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                                <div class="replyDiv" value=0>
+                                    <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                                    <a class="btn btn-danger">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commentDiv">
+                        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+                        <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+                        <div class="comment">
+                            <div class="text">
+                                回复 <a href="#">@某傲娇的只眼姬：<br></a>里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                                休比:下次..绝对不会放手了..<br>
+                                空:空和白一起才是空白!空白永不败北!<br>
+                                白:我和空..不能相隔太远..<br>
+                                さぁー　ゲームを始めましょう！(开始游戏吧! )
+                            </div>
+                            <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                            <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                                <div class="replyDiv" value=0>
+                                    <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                                    <a class="btn btn-danger">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commentDiv">
+                        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+                        <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+                        <div class="comment">
+                            <div class="text">
+                                回复 <a href="#">@某傲娇的只眼姬：<br></a>里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                                休比:下次..绝对不会放手了..<br>
+                                空:空和白一起才是空白!空白永不败北!<br>
+                                白:我和空..不能相隔太远..<br>
+                                さぁー　ゲームを始めましょう！(开始游戏吧! )
+                            </div>
+                            <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                            <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                                <div class="replyDiv" value=0>
+                                    <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                                    <a class="btn btn-danger">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="commentDiv">
+            <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+            <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+            <div class="comment">
+                <div class="text">
+                    曾经经有一对夫妻，他们很强，却从未赢过....<br>
+                    现在有一对兄妹，他们很弱，却从未输过...<br>
+                    那对夫妻:里克和休比<br>
+                    那对兄妹:空和白<br>
+                    那对夫妻勇敢地挑战人生，虽然到最后都没取得胜利，却终止了无止境的大战..<br>
+                    那对兄妹懦弱地逃避人生，虽然到现在都没尝到失败，却难以在现实社会立足..<br>
+                    但勇敢的夫妻也会因为对方的离去痛哭流涕,協弱的兄妹也会因为对方的支持睥睨天下<br>
+                    夫妻和兄妹完全相反，却又十分相似<br>
+                    夫妻是兄妹的前辈，兄妹是夫妻的继承<br>
+                    里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                    休比:下次..绝对不会放手了..<br>
+                    空:空和白一起才是空白!空白永不败北!<br>
+                    白:我和空..不能相隔太远..<br>
+                    我希望那对夫妻这次能赢...<br>
+                    我希望那对兄妹仍然能赢...<br>
+                    无论如何，他们都改变了世界或即将改变世界<br>
+                    既然这样，那么...<br>
+                    来吧!<br>
+                    ゲームを始めましょう！(开始游戏吧! )
+                </div>
+                <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                    <div class="replyDiv" value=0>
+                        <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                        <a class="btn btn-danger">回复</a>
+                    </div>
+                </div>
+
+                <div class="repDiv">
+                    <div class="commentDiv">
+                        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+                        <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+                        <div class="comment">
+                            <div class="text">
+                                回复 <a href="#">@某傲娇的只眼姬：<br></a>里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                                休比:下次..绝对不会放手了..<br>
+                                空:空和白一起才是空白!空白永不败北!<br>
+                                白:我和空..不能相隔太远..<br>
+                                さぁー　ゲームを始めましょう！(开始游戏吧! )
+                            </div>
+                            <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                            <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                                <div class="replyDiv" value=0>
+                                    <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                                    <a class="btn btn-danger">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commentDiv">
+                        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+                        <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+                        <div class="comment">
+                            <div class="text">
+                                回复 <a href="#">@某傲娇的只眼姬：<br></a>里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                                休比:下次..绝对不会放手了..<br>
+                                空:空和白一起才是空白!空白永不败北!<br>
+                                白:我和空..不能相隔太远..<br>
+                                さぁー　ゲームを始めましょう！(开始游戏吧! )
+                            </div>
+                            <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                            <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                                <div class="replyDiv" value=0>
+                                    <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                                    <a class="btn btn-danger">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commentDiv">
+                        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+                        <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+                        <div class="comment">
+                            <div class="text">
+                                回复 <a href="#">@某傲娇的只眼姬：<br></a>里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                                休比:下次..绝对不会放手了..<br>
+                                空:空和白一起才是空白!空白永不败北!<br>
+                                白:我和空..不能相隔太远..<br>
+                                さぁー　ゲームを始めましょう！(开始游戏吧! )
+                            </div>
+                            <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                            <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                                <div class="replyDiv" value=0>
+                                    <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                                    <a class="btn btn-danger">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commentDiv">
+                        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+                        <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+                        <div class="comment">
+                            <div class="text">
+                                回复 <a href="#">@某傲娇的只眼姬：<br></a>里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                                休比:下次..绝对不会放手了..<br>
+                                空:空和白一起才是空白!空白永不败北!<br>
+                                白:我和空..不能相隔太远..<br>
+                                さぁー　ゲームを始めましょう！(开始游戏吧! )
+                            </div>
+                            <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                            <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                                <div class="replyDiv" value=0>
+                                    <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                                    <a class="btn btn-danger">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commentDiv">
+                        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+                        <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+                        <div class="comment">
+                            <div class="text">
+                                回复 <a href="#">@某傲娇的只眼姬：<br></a>里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                                休比:下次..绝对不会放手了..<br>
+                                空:空和白一起才是空白!空白永不败北!<br>
+                                白:我和空..不能相隔太远..<br>
+                                さぁー　ゲームを始めましょう！(开始游戏吧! )
+                            </div>
+                            <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                            <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                                <div class="replyDiv" value=0>
+                                    <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                                    <a class="btn btn-danger">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="commentDiv">
+                        <img src="../ref/img/user-icon/ete.jpg" alt="" class="img-circle">
+                        <h5><a href="">某傲娇的只眼姬</a> <i style="">发表于2020-10-10</i></h5>
+                        <div class="comment">
+                            <div class="text">
+                                回复 <a href="#">@某傲娇的只眼姬：<br></a>里克:如果我跟休比是一体的话，下次一定... 要赢啊!<br>
+                                休比:下次..绝对不会放手了..<br>
+                                空:空和白一起才是空白!空白永不败北!<br>
+                                白:我和空..不能相隔太远..<br>
+                                さぁー　ゲームを始めましょう！(开始游戏吧! )
+                            </div>
+                            <i value=0>展开 <li class="glyphicon glyphicon-menu-down"></li></i>
+                            <div class="starAndrepaly"><a class="star"><li class="glyphicon glyphicon-thumbs-up"></li> 999赞</a><a class="reply" style="margin-left: 15px;"><li class="glyphicon glyphicon-comment"></li> 回复</a>
+                                <div class="replyDiv" value=0>
+                                    <textarea rows="4" placeholder="回复 @某傲娇的只眼姬"></textarea>
+                                    <a class="btn btn-danger">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <ul class="pager">
+        <li><a href="javascript:void(0);" class="front"><span aria-hidden="true"></span> 上一页</a></li>&nbsp;&nbsp;
+        <li><a href="javascript:void(0);" class="next">下一页 <span aria-hidden="true"></span></a></li>
+        <li style="float: right">当前第1页，共1页/99个, 跳至<input onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" type="text">页</li>
+    </ul>
+
+</body>
+</html>

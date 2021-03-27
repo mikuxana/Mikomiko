@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>xana</title>
+    <link rel="stylesheet" href="./backImg/myblog.css">
+    <link rel="stylesheet" href="./backImg/fade.css">
+
+
+    <script src="ref/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="./backImg/Gal.min.js"></script>
+
+
+    <script type="text/javascript" src="./backImg/fade.js"></script>
+
+    <script>
+
+        // console.log('%c       ', 'font-size: 150px; background: url(https://wx1.sinaimg.cn/large/006nOlwNgy1fktngl8rdnj3090090myp.jpg) no-repeat;');
+        $(function () {
+            $(function(){$('body').GalMenu({'menu':'GalDropDown'});
+            $('.hero__scroll').on('click',function(e){$('html, body').animate({scrollTop:$(window).height()},1200)})});
+            var img_id = Math.floor(Math.random()*(16842-6))+1;
+            var himg_id = Math.floor(Math.random()*2002)+1;
+            $.get(
+                "/img/select",
+                {id: img_id, hid: himg_id},
+                function (res) {
+                    var secs = $('ul[class="cb-slideshow"]');
+                    var i=0;
+                    for (; i<res.length-1; ++i)
+                        secs.append("<li><span style=\"background-image:url('"+res[i].src+"')\"></span></li>");
+                    $(".h_img").css("backgroundImage","url('"+res[i].src+"')");
+                },
+                'json'
+            );
+        })
+      // console.log('%c', 'font-size: 150px; background: url(https://wx1.sinaimg.cn/large/006nOlwNgy1fktngl8rdnj3090090myp.jpg) no-repeat;');$(document).ready(function(){$('body').GalMenu({'menu':'GalDropDown'});var resource_list="https://mynovel.life/www.mygalgame.com/Game_list/mygalgameList.json";$.getJSON(resource_list,function(data,status){if(status){for(let i=0;i<data.length;i++){$("#search-item").append("<li><a href='"+data[i].git_url+"'target=\"_blank\">"+data[i].title+"</a></li>")}}else{console.log("400: Invalid request"+status)}});$('#search-highlight').hideseek({highlight:true});setTimeout(function(){$(".aplayer-list").addClass("aplayer-list-hide").children().css("text-align","left")},3000);$('.hero__scroll').on('click',function(e){$('html, body').animate({scrollTop:$(window).height()},1200)})});
+
+    </script>
+
+</head>
+<body>
+<section>
+    <ul class="cb-slideshow">
+        <li><span class="li_img1" style=""></span></li>
+        <li><span class="li_img2" style=""></span></li>
+        <li><span class="li_img3" style=""></span></li>
+        <li><span class="li_img4" style=""></span></li>
+        <li><span class="li_img5" style=""></span></li>
+        <li><span class="li_img6" style=""></span></li>
+    </ul>
+</section>
+<div class="GalMenu GalDropDown" style="top: 70px; left: 480px; display: block; opacity: 1;">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="" title="首页" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            <a href="" target="_blank" title="" class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            <a href="" target="_blank" title="" class="menuItem" style="left: 80.3109%; top: 67.5%;">留言版</a>
+            <a href="" target="_blank" title="" class="menuItem" style="left: 50%; top: 85%;">热门排行</a>
+            <a href="" target="_blank" title="" class="menuItem" style="left: 19.6891%; top: 67.5%;">更新日志</a>
+            <a href="" target="_blank" title="" class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+        </div>
+        <audio id="audio" src="https://www.hacg.me/mp3/onj001.mp3"></audio>
+    </div>
+
+</div>
+<div id="overlay" class="magnify" style="display: none;">
+    <div class="large h_img" style=""></div>
+    <img class="small" src="./backImg/rpic.png" width="1920">
+</div>
+</body>
+</html>

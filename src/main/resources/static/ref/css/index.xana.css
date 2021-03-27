@@ -1,0 +1,357 @@
+
+.xana-nav{
+    background-image: url("ref/img/ad/headerbg.jpg");
+}
+.nav-text:hover{
+    color: #FD4C5B;
+    /*        background-color: transparent;*/
+}
+
+
+/*-----------------------缩略图部分-----------------------------*/
+.test-div{
+    width: 400px;
+    height: 270px;
+    border: 1px red solid;
+}
+.test-div .child{
+    width: 98%;
+    height: 98%;
+
+    border: 1px red solid;
+}
+.hotbox{
+    overflow:hidden;
+    border-radius: 5px;
+    position: relative;
+    margin:3px;
+    padding-bottom: 60.27%;
+}
+.hotbox>.info{
+    position: absolute;
+    left: 0;
+    top:0;
+    right: 0;
+    bottom: 0;
+    transition: all 0.3s;
+    color: transparent;
+    padding: 5px;
+}
+.hotbox>.info>a{
+    transition: all 0.3s;
+    color: transparent;
+    text-decoration: none;
+}
+.hotbox:hover>.info{
+    background-color: rgba(0, 0, 0, 0.44);
+    color: white;
+}
+.hotbox>.title{
+    position: absolute;
+    font-size: 14px;
+    bottom: 10px;
+    left: 2px;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+}
+
+.hotbox:hover>.info>a{
+    color: white;
+}
+
+/*----------------------------------------------------------*/
+.logo-backimg{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.img-card{
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.17);
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 2%;
+    width: 95.66%;
+    height: 93.66%;
+}
+.img-card .bangumi-title{
+    color: white;
+    background-color:rgba(0,0,0,0.23);
+    font-family:' Microsoft YaHei UI Light';
+    position: absolute; bottom: 26%; left: 26%;
+}
+.img-card .bangumi-latest{
+    color: #FD4C5B;
+    background-color:rgba(236,229,231,0.45);
+    font-family: 'Microsoft YaHei UI Light';
+    font-weight: bold;
+    position: absolute; right: 4%; top: 4%;
+}
+.img-card div .bangumi-up-icon{
+    height: 37px;
+    width:37px;
+    position: absolute; left: 5%; bottom: 10%
+}
+.img-card div .bangumi-up-user{
+    position: absolute; left: 25%; bottom: 5%;
+}
+.img-card div .anime-up-time{
+    color: #a8a8a8;
+    font-size: 10px;
+    font-weight: bold;
+    position: absolute; right: 4.3%; bottom: 4.3%;
+}
+.rec{
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.12), 0 1px 2px 0 rgba(0,0,0,0.13);
+}
+.rec a .upbox{
+    position: absolute; left:5%; top:5%; height: 34px;
+}
+.rec a .upbox span{
+    background-color:rgba(0,0,0,0.37); color:white; font-size: 13px
+}
+.rec a .imgbox{
+    height: 74%; overflow: hidden;
+}
+.rec a .rec-tip{
+    color: black; position: absolute; left: 2%; top: 74%;
+}
+.rec a span .rec-title{
+    font-family: "Microsoft YaHei UI Light";
+    font-weight: bold;
+    font-size: 12px;
+
+}
+.rec a span .rec-play_comment{
+    color: gray; font-size: 12px;
+}
+/*------------------------------------------------------*/
+
+.logo-backimg .auto-width-height-ratio{
+    padding-top: 10.25%;
+}
+.rec-body .auto-width-height-ratio{
+    padding-top: 77%;
+}
+.mark-body .more{
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 2px;
+    font-family: 'Microsoft YaHei UI Light';
+    font-size: 13px;
+    font-weight: bold;
+    color: rgba(253, 76, 91, 0.5);
+}
+
+.mark-body .btn-more>a{
+    position: absolute;
+    top: 20%;
+    right: 0;
+    background-color: transparent;
+    transition: all 0.25s;
+}
+.mark-body .btn-more>a:hover{
+    border: 1px #FD4C5B solid;
+}
+#ads-box,.ads-box{
+    height: 100px;
+    margin-bottom: 7px;
+    margin-top: 7px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.acg .auto-width-height-ratio{
+    padding-top: 74%;
+}
+.acg .img-card .row{
+    height: 77%;
+    overflow: hidden;
+}
+
+.rank .auto-width-height-ratio{
+    padding-top: 32%;
+    margin-bottom: 10px;
+}
+.rank .rankBody{
+    padding: 10px;
+    padding-bottom: 0;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.14);
+    transition: all 0.4s;
+}
+.rank .rankBody:hover{
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.25);
+}
+.rank .rankBody a{
+    color: black;
+    transition: all 0.23s;
+}
+.rank .rankBody a.auto-ratio>span{
+    background-color: rgba(255,15,37,0.61);
+    padding: 0px 5px 0px 5px;
+    color: white;
+    position: absolute;
+}
+.rank .rankBody ul>li{
+    margin-bottom: 20px;
+}
+.rank .rankBody ul>li>a{
+    padding: 0;
+    color: silver;
+}
+.rank .rankBody ul>li>a>span:hover{
+    color: rgb(255, 89, 46);
+}
+.rank .rankBody ul>li>a>span{
+    margin-left: 10px;
+    color: black;
+    transition: all 0.25s;
+}
+.rank .rankBody a:hover{
+    color: rgb(255, 89, 46);
+}
+
+.rank .auto-width-height-ratio .auto-ratio{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.rank .rank-imgbox{
+     width: 45%;
+     border-radius: 4px;
+     overflow: hidden;
+ }
+.rank .rankBody .rank-imgbox>img{
+    width: 100%;
+    height: 100%;
+}
+
+.rank .rankBody .rank-textbox{
+    float: right;
+    top: 0;
+    left: 48%;
+    position: absolute;
+}
+
+
+#newPublic>.mark-body>img{
+    height: 60%;
+    margin-top: 2%;
+}
+#newPublic>.mark-body>.mark-info{
+    left: 32px;
+}
+.rank>.mark-body>a{
+    text-decoration: none;
+    position: absolute; bottom: 20%; right: 0
+}
+#newPublic>.rankBody>ul>li>a{
+    font-size: 12px;
+}
+#newPublic>.rankBody>ul>li>a i{
+    color: silver;
+    float: right;
+}
+#talk>.mark-body>.mark-info{
+    left: 32px;
+}
+#talk>.mark-body>img{
+    height: 60%;
+    margin-top: 2%;
+}
+#talk>.rankBody>a{
+
+}
+#talk>.rankBody>a>div{
+    position: relative;
+    padding-top: 22%;
+    margin-bottom: 10px;
+}
+#talk>.rankBody>a>div>img{
+    position: absolute;
+    left: 0;
+    top:0;
+    height: 100%;
+}
+#talk>.rankBody>a>div>i{
+    position: absolute;
+    left: 22%;
+    bottom: 0;
+    font-size: 12px;
+    max-width: 77%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+#talk>.rankBody>a>div>h5{
+    position: absolute;
+    left: 27%;
+    top: 0;
+}
+#talk>.rankBody>a>div>h5>i{
+    margin-left: 10px;
+    font-size: 10px;
+    color: silver;
+}
+/*.message .auto-width-height-ratio{*/
+/*    padding-top: 125%;*/
+/*}*/
+
+.links .mark-body>img{
+    padding-top: 5px;
+    width: 30px;
+}
+.links .mark-body>.mark-info{
+    left: 40px;
+}
+
+.links .linksBody{
+    padding-top: 17px;
+    padding-bottom: 17px;
+}
+
+.links .linksBody>a{
+    text-decoration: none;
+    margin-right: 20px;
+    color: #969696;
+    transition: all 0.25s;
+}
+.links .linksBody>a:hover{
+    color: rgba(255, 69, 0, 0.87);
+}
+/*------------------------------------------*/
+.lunbo .auto-width-height-ratio{
+    padding-bottom: 63.27%;
+}
+
+@media screen and (max-width: 768px){
+    .lunbo .auto-width-height-ratio{
+        padding-bottom: 50%;
+        margin-bottom: 5px;
+    }
+    .rankBody .auto-width-height-ratio{
+        padding-top: 27%;
+    }
+    *{
+        font-size: 12px;
+    }
+    #talk>.rankBody>a>div{
+        padding-top: 15%;
+    }
+    #talk>.rankBody>a *{
+        font-size: 10px;
+    }
+    #talk>.rankBody>a h5,i{
+        margin-left: -17px;
+    }
+
+    #ads-box,.ads-box{
+        height: 45px;
+    }
+    .bangumi-title{
+        font-size: 10px;
+    }
+    .bangumi-up-user{
+        font-size: 10px;
+    }
+}

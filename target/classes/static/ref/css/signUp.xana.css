@@ -1,0 +1,53 @@
+.sign-up-box{
+    width: 320px;
+    height: 400px;
+    position: absolute;
+    top: 20%;
+    right: 7%;
+    background-color: rgba(255,255,255,0.66);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15), 0 2px 4px 0 rgba(0,0,0,0.17);
+    padding: 15px;
+    border-radius: 7px;
+}
+
+.sign-up-box .line{
+    width: 100%;
+    border: none;
+    outline-style: none;
+    height: 30px;
+    background-color: transparent;
+    border-bottom: 1px gray solid;
+    font-size: 14px;
+
+    background-image: url("./ref/img/user-icon/ete.jpg");
+}
+
+.sign-up-box div{
+    height: 50px;
+}
+
+.sign-up-box div span{
+    color: red;
+    font-size: 12px;
+
+}
+
+.sign-up-box .btn-danger{
+    margin-top: 17px;
+}
+
+.sign-up-box .code{
+    position: absolute;
+    right: 15px;
+    bottom: 85px;
+}
+
+.sign-up-box .sign-up-title{
+    font-size: 17px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.sign-up-title a{
+    float: right;;
+}

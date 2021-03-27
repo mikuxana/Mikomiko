@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8">
+    <title> 搜索 -mikomiko-好玩的二次元分享社区 (・ω・)ノ-( ゜-゜)つロ - </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="/ref/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/ref/css/public.xana.css">
+    <link rel="stylesheet" href="/ref/css/search.bangumi.xana.css">
+    <link rel="stylesheet" href="/ref/css/backimg.xana.css">
+
+    <script src="/ref/js/jquery-3.5.1.min.js"></script>
+    <script src="/ref/js/bootstrap.min.js"></script>
+
+    <script th:inline="javascript">
+        var res = [[${res}]];
+    </script>
+    <script src="/ref/js/public/func.js"></script>
+    <script src="/ref/js/public/search.xana.js"></script>
+    <script src="/ref/js/search.bangumi.xana.js"> </script>
+    <script src="/ref/js/public/backimg.xana.js"></script>
+</head>
+<body>
+    <div id="hd">
+        <nav style="position: fixed; top: 0; z-index: 100">
+            <div class="logo">
+                <a href="/" title="主页">
+                    <img src="/ref/img/logo.png" alt="">
+                </a>
+            </div>
+
+            <div id="hdtags" style="">
+                <a href="/">门户</a>
+                <a href="#">最新热漫</a>
+                <a href="#">视频专区</a>
+                <a href="#">音乐</a>
+                <a href="#">漫画</a>
+                <a href="#">游戏</a>
+                <a href="#">资讯</a>
+            </div>
+
+            <div id="loginDiv">
+                <a href="/login">登录</a>
+                <a href="/signUp">注册</a>
+                <a href="/signUp">忘记密码?</a>
+                <a href="/signUp">QQ登录</a>
+                <a href="/signUp">微信登录</a>
+            </div>
+            <div id="userdiv">
+                <a href="/user/" id="usernav"><img src="/ref/img/user-icon/ete.jpg" alt="" class="img-circle">某傲娇的只眼姬</a>
+                <ul class="nav navbar">
+                    <div id="username">某傲娇的只眼姬</div>
+                    <li id="lv">Lv6</li>
+                    <li id="uid">UID:100000</li>
+                    <li><a href=""><img src="/ref/img/icon/all/user.png">个人中心</a></li>
+                    <li><a href=""><img src="/ref/img/icon/all/upload.png" alt="">投稿管理</a></li>
+                    <li><a href=""><img src="/ref/img/icon/all/order.png" alt="">订单中心</a></li>
+                    <li><a href=""><img src="/ref/img/icon/all/exit.png" alt="">退出</a></li>
+                </ul>
+                <a href="">动态</a>
+                <a href="">收藏</a>
+                <a href="">历史</a>
+            </div>
+            <div class="sub">
+                <a href="javascript:void(0);">扫码+关注</a>
+                <img src="/ref/img/QRcode/app-download.png" alt="">
+            </div>
+        </nav>
+
+        <div class="headerbg" style="height: 100px">
+        </div>
+
+        <!--侧边工具栏-->
+        <div class="side_bar">
+            <ul>
+                <li class="side_bar_tel">
+                    <i><img src="/ref/img/icon/all/mail.png" alt="" title="电子邮箱"></i>
+                    <div class="deansidehidden">
+                        <p>xana@qq.com</p>
+                    </div>
+                </li>
+                <li class="side_bar_weixin">
+                    <i><img src="/ref/img/icon/all/qq.png" alt="" title="QQ"></i>
+                    <div class="deansidehidden">
+                        <img src="/ref/img/QRcode/me.jpg" alt="">
+                        <p>联系站长QQ</p>
+                    </div>
+                </li>
+                <li class="side_bar_top">
+
+                    <i onclick="window.scroll({ top: 0, behavior: 'smooth'})" title="回到顶部">
+                        <img src="/ref/img/icon/all/top.png" alt="">
+                    </i>
+                    <div class="deansidehidden">
+                        <p>返回顶部</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="backimg">
+        <section>
+            <ul class="cb-slideshow">
+            </ul>
+        </section>
+        <div class="GalMenu GalDropDown" style="top: 70px; left: 480px; display: block; opacity: 1;">
+            <div class="circle" id="gal">
+                <div class="ring">
+                    <a href="/" title="首页" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+                    <a href="javascript:void(0);" title="" class="menuItem next" style="left: 80.3109%; top: 32.5%;">下一页</a>
+                    <a href="" title="" class="menuItem" style="left: 80.3109%; top: 67.5%;">留言版</a>
+                    <a href="" title="" class="menuItem" style="left: 50%; top: 85%;">热门排行</a>
+                    <a href="" title="" class="menuItem" style="left: 19.6891%; top: 67.5%;">更新日志</a>
+                    <a href="javascript:void(0);" title="" class="menuItem front" style="left: 19.6891%; top: 32.5%;">上一页</a>
+                </div>
+                <audio id="audio" src="https://www.hacg.me/mp3/onj001.mp3"></audio>
+            </div>
+
+        </div>
+        <div id="overlay" class="magnify" style="display: none;">
+            <div class="large h_img" style=""></div>
+            <img class="small" src="/ref/img/public/rpic.png" width="1920">
+        </div>
+    </div>
+    <div class="container main">
+        <div class="searchDiv row">
+            <div class="auto-width search">
+                <input type="text" class="key" placeholder="搜索关键字...">
+                <a href="#"><li class="glyphicon glyphicon-search"></li></a>
+            </div>
+            <div class="keys">
+                <a href="#">综合</a>
+                <a href="/search/bangumi/" title="bangumi">番剧</a>
+                <a href="#">动画</a>
+                <a href="#">漫画</a>
+                <a href="/search/game/" title="game">游戏</a>
+                <a href="#">音乐</a>
+            </div>
+        </div>
+
+        <div class="auto-width-height-ratio" th:each="r : ${res.content}">
+            <div class="auto-adjust auto-ratio">
+                <a th:href="|/bangumi/${r.id}|" th:title="${r.title}" target="_blank">
+                    <div  class="pic auto-height" th:style="|background-image: url('${r.pic}')|">
+                    </div>
+                </a>
+                <div class="divinfo">
+                    <a th:href="|/bangumi/${r.id}|" style="text-decoration: none;" target="_blank">
+                        <div class="title" th:utext="${r.title}">
+                            Re：从零开始的异世界生活 第二季
+                        </div>
+                    </a>
+                    <div class="info">
+                        <span>类型: <span th:utext="${r.type}">小说改/穿越/奇幻</span></span><br>
+                        <span>地区: <span th:utext="${r.area}">日本</span></span><br>
+                        <span>年份: <span th:utext="${r.yyyy}">2020</span></span><br>
+                        <span>简介:
+                            <span class="des" th:utext="${r.des2}">
+                            TV动画《Re：从零开始的异世界生活》第二季制作决定！
+                            走出便利店要回家的高中生‧菜月昴突然被召唤到异世界。这莫非就是很流行的异世界召唤？可是眼前没有召唤者就算了，还遭遇强盗迅速面临性命危机。这时，一名神秘银发美少女和猫精灵拯救了一筹莫展的他。以报恩为名义，昴自告奋勇要帮助少女找东西。 然而，好不容易才掌握到线索，昴和少女却被不明人士攻击而殒命──本来应该是这样，但回过神来，昴却发现自己置身在第一次被召唤到这个异世界时的所在位置。“死亡回归”──无力的少年得到的唯一能力，是死后时间会倒转回到一开始。 跨越无数绝望，从死亡的命运中拯救少女。“即使你忘记了，我也不会忘记你。”
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+<!--                    <a href="#" class="col-sm-2 no-padding">
+                        <div class="auto-width-height-ratio" style="background-image: url('https://inews.gtimg.com/newsapp_ls/0/11930433630/0')">
+                        </div>
+                    </a>
+                    <div class="col-sm-10">
+
+                            <a href="#" style="text-decoration: none;">
+                                <div class="title">
+                                    Re：从零开始的异世界生活 第二季
+                                </div><br>
+                            </a>
+
+                        <div class="info">
+                            <span>类型: <span>小说改/穿越/奇幻</span></span><br>
+                            <span>地区: <span>日本</span></span><br>
+                            <span>年份: <span>2020</span></span><br>
+                            <span>简介:
+                                <span>
+                                TV动画《Re：从零开始的异世界生活》第二季制作决定！
+                                走出便利店要回家的高中生‧菜月昴突然被召唤到异世界。这莫非就是很流行的异世界召唤？可是眼前没有召唤...
+                                </span>
+                                 <span style="display: none">
+                                TV动画《Re：从零开始的异世界生活》第二季制作决定！
+                                走出便利店要回家的高中生‧菜月昴突然被召唤到异世界。这莫非就是很流行的异世界召唤？可是眼前没有召唤者就算了，还遭遇强盗迅速面临性命危机。这时，一名神秘银发美少女和猫精灵拯救了一筹莫展的他。以报恩为名义，昴自告奋勇要帮助少女找东西。 然而，好不容易才掌握到线索，昴和少女却被不明人士攻击而殒命──本来应该是这样，但回过神来，昴却发现自己置身在第一次被召唤到这个异世界时的所在位置。“死亡回归”──无力的少年得到的唯一能力，是死后时间会倒转回到一开始。 跨越无数绝望，从死亡的命运中拯救少女。“即使你忘记了，我也不会忘记你。”
+                                </span>
+                                <a href="javascript:void(0)" onclick="a(this)" style="text-decoration: none;">展开</a>
+                            </span>
+                    </div>
+                    </div>-->
+        </div>
+
+        <ul class="pager" th:if="${res.totalSize}>0">
+            <li th:if="${res.pageNum}>1"><a th:href="'?page='+(${res.pageNum}-1)" class="prev"><span aria-hidden="true"></span> 上一页</a></li>&nbsp;&nbsp;
+            <li th:if="${res.pageNum}<${res.totalPages}"><a th:href="'?page='+(${res.pageNum}+1)" class="next">下一页 <span aria-hidden="true"></span></a></li>
+            <li style="float: right">当前第<tr th:utext="${res.pageNum}"></tr>页，共<tr th:utext="${res.totalPages}"></tr>页/<tr th:utext="${res.totalSize}"></tr>个 <tr th:if="${res.totalPages>1}">, 跳至<input onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" type="text" id="skip">页</tr></li>
+        </ul>
+    </div>
+</body>
+</html>

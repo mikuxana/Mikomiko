@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iframe父子页面互调</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+<h2>子页面调用postMessage，父页面通过监听来获取子页面的数据</h2>
+<div style="width:400px; height: 200px;">
+    <iframe src="./son1.html" frameborder="0" style="width:100%; height: 100%;"></iframe>
+</div>
+<div id="output"></div>
+
+<h2>子页面调用父页面的一些方法</h2>
+
+<script>
+    window.addEventListener('message', function (e) {
+        console.log(e);
+        console.log(e.data);
+        var data = e.data;
+        if (data.txt) {
+            var output = document.getElementById('output');
+            output.innerHTML = `新的名字是：${data.txt}`;
+        }
+    }, false);
+
+    function fun() {
+        console.log('这是父页面打印出的');
+    }
+</script>
+</body>
+
+</html>

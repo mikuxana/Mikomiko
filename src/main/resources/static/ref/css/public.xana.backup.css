@@ -1,0 +1,317 @@
+.main{
+    background-color: rgba(255,255,255,0.45);
+    border-radius: 5px;
+}
+.main .searchDiv{
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.21), 0 4px 7px 0 rgba(0,0,0,0.23);
+    background-color: rgba(255,255,255,0.45);
+    border-radius: 5px;
+    transition: all 0.4s;
+}
+.main .searchDiv>div{
+    margin: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.main .search>.key{
+    border: none;
+    outline-style: none;
+    background-color: transparent;
+    border-bottom: 2px rgba(128, 128, 128, 0.86) solid;
+    transition: all 0.4s;
+}
+
+.main .searchDiv:hover{
+    box-shadow: 0 5px 7px 0 rgba(0,0,0,0.32), 0 7px 12px 0 rgba(0,0,0,0.46);
+}
+
+.main .searchDiv>.keys{
+    font-size: 20px;
+    font-family: "Microsoft YaHei UI Light";
+    font-weight: bold;
+    margin-left: 0;
+    margin: 20px 0 20px 0;
+}
+
+.main .searchDiv>.keys a{
+    padding: 4px 10px 4px 10px;
+    text-decoration: none;
+    transition: all 0.4s;
+}
+.main .searchDiv>.keys a:hover{
+    color: rgba(245, 92, 164, 0.73);
+    background-color: rgba(0, 0, 0, 0.06);
+}
+.search>.key:hover{
+    color: rgba(245, 92, 164, 0.73);
+    border-bottom: red 2px solid;
+}
+.search>.key:focus{
+    color: rgba(245, 92, 164, 0.73);
+    border-bottom: red 2px solid;
+}
+
+.circle-border{
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.red-border{
+    border: 1px red solid;
+}
+
+.icon-border{
+    border: 2px rgba(245, 136, 190, 0.5) solid;
+}
+
+.black-border{
+    border: 1px black solid;
+}
+
+.green-border{
+    border: 1px lawngreen solid;
+}
+.auto-adjust{
+    width: 100%;
+    height: 100%;
+}
+.auto-height{
+    height: 100%;
+}
+
+.auto-width{
+    width: 100%;
+    height: auto;
+}
+
+.auto-width-height-ratio{
+    width: 100%;
+    position: relative;
+}
+
+
+.auto-ratio{
+    position: absolute;
+    left: 0;
+    top:0;
+}
+
+
+.red-back-color{
+    background-color: red;
+}
+
+.half-height{
+    height: 50%;
+}
+
+.half-width{
+    width: 50%;
+    float: left;
+}
+
+.no-padding{
+    padding: 0;
+}
+.no-border{
+    border: transparent;
+}
+/*-------------导航栏--------------------*/
+
+body{
+    background-color: rgba(0, 0, 0, 0.53);
+}
+
+#navbar>ul>.actived>a{
+    color: rgba(255, 40, 55, 0.65);
+    border-bottom: rgba(255, 40, 55, 0.65) 2px solid;
+}
+#navbar>ul>li>a{
+    color: #515375;
+    padding-right: 26px;
+    padding-left: 26px;
+    font-family: "Microsoft YaHei UI Light";
+    transition: all 0.4s;
+}
+#navbar>ul>li>a:hover{
+    color: rgba(255, 40, 55, 0.65);
+    background-color: #fff8f6;
+}
+
+/*smart*/
+@media screen and (max-width: 768px)
+{.row-offcanvas{position:relative;-webkit-transition:all 0.25s ease-out;transition:all 0.25s ease-out}
+    .row-offcanvas-left{left:0}
+    .row-offcanvas-left .sidebar-offcanvas{left:-50%}
+    .row-offcanvas-left.active{left:50%}
+    .sidebar-offcanvas{position:absolute;top:0;width:50%}
+    .sidebar-nav .navbar .navbar-collapse{padding:0;max-height:none}
+    .sidebar-nav .navbar ul{float:none}
+    .sidebar-nav .navbar ul:not{display:block}
+    .sidebar-nav .navbar li{float:none;display:block}
+    .sidebar-nav .navbar li a{padding-top:12px;padding-bottom:12px}
+    #navbar>ul>li>a{
+        padding:10px;
+    }
+    .nav.navbar-form.search{
+        display: none;
+    }
+}
+.navbar-collapse-wrap{position:absolute}  .navbar{border:none}
+/*.navbar .navbar-nav>.current-menu-item a{color: #2f2f2f;background-color: rgba(0, 0, 0, 0.61);}*/
+
+.navbar .navbar-toggle:focus,.navbar .navbar-toggle:hover{background-color:transparent}
+.navbar .container-fluid{padding:0px; background-color: rgba(255, 255, 255, 0.77);}
+.navbar .container-fluid .navbar-header{margin:0;position:relative;z-index:100;background-color: transparent;}
+.navbar .container-fluid>.navbar-collapse{position:fixed;z-index:50;bottom:0px;top:0px;left:-50%;margin:0;padding:0px;width:48%;white-space:nowrap;box-shadow:none;border-top:0px solid #192945;display:block;overflow-y:auto;background-color: rgba(255, 255, 255, 0.78);overflow-x:hidden}
+.navbar .container-fluid>.navbar-collapse.active{left:0px}
+.navbar .container-fluid ul{margin:50px 0 0 0;padding:0px}
+.transition{-webkit-transition:all 0.25s ease-out;transition:all 0.25s ease-out}
+.navbar-toggle{border:none;margin-left:10px}
+.navbar-toggle .icon-bar{-webkit-transform-origin:21px;-ms-transform-origin:21px;transform-origin:21px;-webkit-transition:-webkit-transform .2s, opacity .1s;transition:transform .2s, opacity .1s;height:3px;width:22px}
+.navbar-toggle:not(.collapsed) .icon-bar:nth-child(2){-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg)}
+.navbar-toggle:not(.collapsed) .icon-bar:nth-child(4){-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}
+.navbar-toggle:not(.collapsed) .icon-bar:nth-child(3){opacity:0}
+.navbar-nav{margin:0px}
+@media (min-width: 768px){ .navbar .container-fluid{padding:0 15px}
+.navbar .container-fluid .navbar-header{margin:0px;padding:0px}
+.navbar .container-fluid ul{width:auto;background-color:transparent;padding-left:0;margin:initial}
+.navbar .container-fluid>.navbar-collapse{position:initial;z-index:initial;bottom:initial;top:initial;background-color:initial;margin:initial;width:initial}
+.navbar-nav{margin:initial}.overlay{display:none}
+    li>.nav.search.smart{
+        display: none;
+    }
+
+}
+
+
+.nav.search>input{
+    outline: none; background-color: transparent; color: black; border: none; border-bottom: silver 2px solid; font-size: 20px;
+    transition: all 0.3s;
+}
+.nav.search.smart>input{
+    outline: none; background-color: transparent; border: none; border-bottom: 1px silver solid; font-size: 15px; width: 90%;
+    transition: all 0.3s;
+}
+.nav.search.smart>input:hover{
+    border-bottom: red 1px solid;
+}
+.nav.search.smart>input:focus{
+    border-bottom: red 1px solid;
+}
+/*----------------------------------------------------------------------*/
+
+.header-backimg{
+    border-radius: 5px;
+    background-size: cover;
+    overflow: hidden;
+    height: 140px;
+}
+
+.navbar{
+    background-color: rgba(255,255,255,0.7);
+}
+
+.navbar .navbar-form{
+    position: absolute;
+    left: 46.66%;
+}
+
+.navbar ul{
+    font-weight: bold;
+    font-size: 12px;
+}
+
+
+
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.24);
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.14);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 3px rgba(192, 192, 192, 0.68);
+    background-color: rgba(17, 14, 246, 0.64);
+}
+
+/*-----------------2020/11/26---------------------------*/
+.testHeight{
+    height: 160px;
+}
+
+/*==================2020/12/07=========================*/
+.user{
+}
+.user .user-box{
+    position: absolute;
+    left: 5.6%;
+    bottom:26%;
+    height: 60px;
+}
+.user .user-box span{
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.user .user-img{
+    height: 66%;
+    overflow: hidden;
+}
+.user .user-login{
+    position: absolute;
+    right: 6.66%;
+    bottom: 7%;
+}
+.user .auto-width-height-ratio{
+    padding-top: 77.52%;
+}
+.user .auto-ratio{
+    border-radius: 7px;
+    overflow: hidden;
+    margin-top: 4px;
+    width:100%;
+    height: 95%;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15), 0 2px 7px 0 rgba(0,0,0,0.17);
+}
+.user .user-tip{
+    position: absolute;
+    right: 0; bottom: 0;
+    font-size:12px;
+    color: gray;
+}
+
+.mark-body{
+    height: 40px;
+    position: relative;
+    overflow: hidden;
+}
+.mark-body .mark-icon{
+    height: 100%; width: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.mark-body .mark-info{
+    font-size: 13px;
+    font-weight: bold;
+    font-family: "Microsoft YaHei UI Light";
+
+    position: absolute;
+    left: 50px;
+    top: 30%;
+}
+.mark-body .mark-btn{
+    float: right;
+}

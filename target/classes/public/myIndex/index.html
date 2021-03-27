@@ -1,0 +1,377 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Xanaのインデックス</title>
+    <link rel="shortcut icon"  type="image/x-icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="description" content="灯露椎は傷からない">
+    <meta name="keywords" content="二次元，动漫和galgame汉化，宅属性，编程，全栈">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/process.css">
+    <link rel="stylesheet" type="text/css" href="./live2d/assets/waifu.css"/>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        window.onload = function(){
+            //存放音乐列表，根据音乐文件路径，进行填写
+            var musicList = ['./audio/V.A. - Lachrymal.mp3', './audio/秋山裕和,むにょっ - 空虚的祈祷.mp3', './audio/结城缪_ - 涙.mp3'];
+            playMusic(musicList);
+        }
+
+        function playMusic(musicList){
+            var myAudio = new Audio();
+            //是否进行预加载
+            myAudio.preload = false;
+            myAudio.controls = true;
+            // myAudio.hidden = true;
+            //从音乐列表中，获取最后一个音乐（并删除）
+            var src = musicList.pop();
+            myAudio.src =src;
+            //将最后一个音乐添加到数组的开头，这样实现循环
+            musicList.unshift(src);
+            //绑定音乐结束事件，当音乐播放完成后，将会触发playEndedHandler方法
+            myAudio.addEventListener("ended",playEndedHandler,false);
+
+            //播放当前音乐
+            myAudio.play();
+            document.getElementById("music").appendChild(myAudio);
+            //将循环播放关闭，如果开启，将不能触发playEndedHandler方法，只能进行单曲循环
+            myAudio.loop = false;
+            function playEndedHandler(){
+                src = musicList.pop();
+                myAudio.src = src;
+                musicList.unshift(src);
+                myAudio.play();
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        //设定rem值
+        document.getElementsByTagName("html")[0].style.fontSize = document.documentElement.clientWidth/20 + 'px';
+    </script>
+</head>
+<body>
+<!--    <audio src="./audio/onj001.mp3" autoplay></audio>-->
+    <div id="music"></div>
+    <div class="live2d">
+        <div class="waifu">
+            <div class="waifu-tips"></div>
+            <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
+            <div class="waifu-tool">
+                <span class="fui-home"></span>
+                <span class="fui-chat"></span>
+                <span class="fui-eye"></span>
+                <span class="fui-user"></span>
+                <span class="fui-photo"></span>
+                <span class="fui-info-circle"></span>
+                <span class="fui-cross"></span>
+            </div>
+        </div>
+        <script src="./live2d/assets/waifu-tips.js"></script>
+        <script src="./live2d/assets/live2d.js"></script>
+        <script type="text/javascript">initModel("./live2d/assets/")</script>
+    </div>
+
+	<header class="head">
+        <div class="head_logo_div">
+            <img class="logo_img" src="images/upload/head.jpg"></a>
+        </div>
+        <div class="head_nav_div">
+             <nav class="head_nav">
+                <ul id="nav_ul">
+                    <li class="nav_li_on nav_ul_li">Home</li>
+                    <li class="nav_ul_li">Skill</li>
+                    <li class="nav_ul_li">Experience</li>
+                    <li class="nav_ul_li">Hobby</li>
+                    <li class="nav_ul_li">Contact</li>
+                </ul>
+            </nav>
+        </div>
+        <div class="clear"></div>
+    </header>
+    
+    <ul class="float_btn" id="float_btn">
+        <li class="btn_on"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    
+    <div class="wrapBox" id="wrapBox">
+        <div class="box">
+            <img class="box_bg" src="images/upload/pic_1.jpg">
+            <div class="box01_content">
+                <div class="head_div">
+                    <div class="cycle_item">
+                        <a href="https://github.com/mikuxana" class="github_a" id="github_a" target="_blank">
+                            <span class="github_icon"></span>
+                            <span class="github_text"><p class="item_name">GitHub</p></span>
+                        </a>
+                        <a href="https://leetcode-cn.com/u/index-26/" class="leetcode_a" id="weibo_a" target="_blank">
+                            <span class="leetcode_icon"></span>
+                            <span class="leetcode_text"><p class="item_name">力扣</p> </span>
+                        </a>
+                        <a href="javascript:void(0);" class="blog_a" id="blog_a" target="_blank">
+                            <span class="blog_icon"></span>
+                            <span class="blog_text"><p class="item_name">博客</p></span>
+                        </a>
+
+                        <div class="green_cycle">
+                            <img class="green_cycle_img" src="images/icon/green_cycle.svg">
+                            <div class="yellow_cycle">
+                                <img class="yellow_cycle_img" src="images/icon/yellow_cycle.svg">
+                                <div class="blue_cycle">
+                                    <img class="blue_cycle_img" src="images/icon/blue_cycle.svg">
+                                    <div class="head_img_div">
+                                        <img class="head_img" src="images/upload/head.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<!--                <h1 class="title">嫉妬の魔女</h1>-->
+                <h2 class="title_h2">千里之行，始于足下</h2>
+                <div id="box01_text">
+                    <p class="box01_p">生——既为命运无法摆脱的苦难枷锁</p>
+                    <p class="box01_p">死——乃是人生恩惠所享最后的安宁</p>
+                    <p class="box01_p">神赐之恩——超越了生死的境界</p>
+                    <p class="box01_p">神裁之罚——落入了尘世的纷繁</p>
+                    <p class="box01_p">人生如梦、如幻</p>
+                </div>
+            </div>
+            <div class="arrow_div">
+                <img class="arrow_img" src="images/icon/arrowhead.png">
+            </div>
+        </div>
+        
+        <div class="box">
+            <img class="box_bg" src="images/upload/pic_2.jpg">
+            
+            <div class="box02_content box_content">
+                <div id='bar_container' class="bar_container">
+                    <div class='bar gray' data-percent='60' data-skill='C++/C#/Java/Python'></div>
+                    <div class='bar mint' data-percent='50' data-skill='HTML5+CSS3'></div>
+                    <div class='bar red' data-percent='50' data-skill='JavaScript'></div>
+                    <div class='bar orange' data-percent='40' data-skill='Unity3D'></div>
+                    <div class="bar blue" data-percent='30' data-skill='C4D/blender'></div>
+                    <div class="bar green" data-percent='60' data-skill='绘画/汉化'></div>
+                </div>
+                <div id="box02_text">
+                    <h1>About Skill</h1>
+                    <div class="overline"></div>
+                    <p>2017,第一次接触到了C语言, 在拥挤的实验室，完成了第一个hello world!程序</p>
+                    <p>2018,年初的时候接触到了C++，尝试做一个GUI程序, 接触到了QT5。</p>
+                    <p>剩下的月份学习了JavaWeb技术，Spring+SpringMVC+Mybatis后端框架</p>
+                    <p>接着学习了Bootstrap、Jquery前端框架, Scrapy爬虫技术</p>
+                    <p>2019,接触到SpringBoot, 尝试建一个前后二次元分享社区-mikomiko</p>
+                    <p>使用Scrapy，爬取了BiliBili、樱花动漫、琉璃神社等动漫、galgame资源</p>
+                    <p>2020,体验了一款ARPG手游站双帕弥什，萌生出开发一款游戏的想法</p>
+                    <p>喜欢UI,交互设计</p>
+                    <p>未来...想成为一名全栈工程师</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            
+            <div class="arrow_div">
+                <img class="arrow_img" src="images/icon/arrowhead.png">
+            </div>
+            
+        </div>
+        
+        <div class="box">
+            <img class="box_bg" src="images/upload/pic_3.jpg">
+            
+            <div class="box_content box03_content">
+                <ul id="timeUl" class="timeUl">
+                    <li>
+                        <div>
+                            <h1>2017.9-Now</h1>
+                            <p>西北民族大学</p>
+                            <p>专业：软件工程</p>
+                            <p>最喜欢的科目是高等数学<p>
+                            <p>现在正在愁于毕业设计</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h1>2019.12-2020.5</h1>
+                            <p>家里蹲</p>
+                            <p>游戏体验员(笑)</p>
+                            <p>没学到什么东西</p>
+                            <p>前途多艰</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div>
+                            <h1>2020.10-2020.12</h1>
+                            <p>参加CCSP算法竞赛</p>
+                            <p>获得西北赛区银奖和全国铜奖</p>
+                            <p>受益匪浅</p>
+                        </div>
+                    </li>
+
+                    <li>
+                       <div>
+                            <h1>Future</h1>
+                            <p>...</p>
+                        </div>
+                    </li>
+                </ul>
+                 <div class="left_div" id="left_div">
+                     <img class="left_arrow" src="images/icon/arrowleft.png">
+                 </div>
+                 <div class="right_div" id="right_div">
+                      <img class="right_arrow" src="images/icon/arrowright.png">
+                 </div>
+            </div>
+            
+             <div class="arrow_div">
+                <img class="arrow_img" src="images/icon/arrowhead.png">
+            </div>
+        </div>
+        
+        
+        <div class="box">
+            
+            <img class="box_bg" src="images/upload/pic_4.jpg">
+            <div class="box_content box04_content">
+                <h1 class="box04_title">Something Of Hobby</h1>
+                <ul class="hobby_content">
+                    <li class="hobby_01">
+                        <div class="hobby_img_div">
+                            <div class="spinner spinner_01"></div>
+                            <div class="hobby_img">
+                                <img src="images/upload/kapok.jpg">
+                            </div>
+                            <div class="hobby_img_info">
+                                <h1>ACG</h1>
+                                <h2>动漫&视频</h2>
+                            </div>
+                        </div>
+                        <div class="hobby_text_div">
+                            <div class="hobby_img_info_mob">
+                                <h1>ACG/<a>动漫&视频</a></h1>
+                            </div>
+                            <p>
+                                动漫入宅作《某科学的电磁炮》
+                                喜欢治愈番《星之梦》《天使的心跳》...
+                                喜欢异世界番《游戏人生》、《问题儿童都来自异世界?!》...
+                                喜欢的声优是茅野爱衣、钉宫理惠、花泽香菜。是个典型的白毛控重度患者。
+                            </p>
+                        </div>
+                    </li>
+                    <li class="hobby_02">
+                        <div class="hobby_img_div">
+                            <div class="spinner spinner_02"></div>
+                            <div class="hobby_img">
+                                <img src="images/upload/acg.png">
+                            </div>
+                            <div class="hobby_img_info">
+                                <h1>ACG</h1>
+                                <h2>游戏&Gal</h2>
+                            </div>
+                        </div>
+                        <div class="hobby_text_div">
+                            <div class="hobby_img_info_mob">
+                                <h1>ACG/<a>游戏&Gal</a></h1>
+                            </div>
+                            <p>
+                                Galgame入宅作《美少女万华镜 -被诅咒之传说之少女-》...我永远喜欢篝之雾枝.jpg<br>
+                                ACG对我而言是和文学一样的文化,最具感染力的抒情方式,将来希望自己工作在二次元的领域。
+                            </p>
+                        </div>
+                    </li>
+                    <li class="hobby_03">
+                        <div class="hobby_img_div">
+                            <div class="spinner spinner_03"></div>
+                            <div class="hobby_img">
+                                <img src="images/upload/reading.gif">
+                            </div>
+                            <div class="hobby_img_info">
+                                <h1>文学</h1>
+                                <h2>历史&写作</h2>
+                            </div>
+                        </div>
+                        <div class="hobby_text_div">
+                            <div class="hobby_img_info_mob">
+                                <h1>文学/<a>历史&写作</a></h1>
+                            </div>
+                            <p>
+                                和大多数人一样曾经也捧着一本小说看,以前喜欢马尔克斯村上春树,现在的兴趣
+                                转移到轻小说上去了。ps:《创约 魔法禁书目录1》教主初吻没了，我的青春结束了！<br>
+                                此外也会写点东西,就是毅力不够，仍需磨砺。
+                            </p>
+                        </div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+             <div class="arrow_div">
+                <img class="arrow_img" src="images/icon/arrowhead.png">
+            </div>
+        </div>
+        
+        <foot id="foot" class="foot">
+            <h1 class="foot_title">Contact With Me</h1>
+            <div class="foot_info_main">
+                <ul>
+                    <li class="github_items">
+                        <a href="https://github.com/mikuxana" target="_blank">GitHub</a>
+                    </li>
+                    <li class="google_items">
+                        <a href="javascript:void(0);" target="_blank">Google+</a>
+                    
+                    </li>
+                    <li class="twitter_items">
+                        <a href="javascript:void(0);" target="_blank">Twitter</a>
+                    
+                    </li>
+                    <li class="facebook_items">
+                        <a href="javascript:void(0);" target="_blank">FaceBook</a>
+                    
+                    </li>
+                    <li class="bili_items">
+                        <a href="https://space.bilibili.com/37542691" target="_blank">BiliBili</a>
+                    
+                    </li>
+                    <li class="zhihu_items">
+                        <a href="javascript:void(0);" target="_blank">知乎</a>
+                    
+                     </li>
+                     <li class="blog_items">
+                        <a href="javascript:void(0);" target="_blank">博客</a>
+                    
+                     </li>
+                     <li class="email_items">
+                        <a href="mailto:mikuxana@outlook.com" target="_blank">邮箱</a>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+                <div class="qrcode_div">
+                    <span class="weixin">
+                        <a class="weixin_icon"></a>
+                        <img class="weixin_img" src="images/upload/weixin_qr.jpg">
+                    </span>
+                    <span class="dingding">
+                        <a class="dingding_icon"></a>
+                        <img class="dingding_img" src="images/upload/qq_qr.jpg">
+                    </span>
+                    <span class="qq">
+                        <a class="qq_icon"></a>
+                        <img class="qq_img" src="images/upload/qq_qr.jpg">
+                    </span>
+                </div>
+            </div>
+            <div class="foot_power">
+                <h3>Copyright &copy; 2018-2021 嫉妬の魔女
+                </h3>
+            </div>
+        </foot>
+    </div>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
+
+ 

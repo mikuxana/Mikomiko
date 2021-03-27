@@ -1,0 +1,123 @@
+.main .bangumi-card{
+    width: 33.33%;
+    float: left;
+    position: relative;
+    padding-top: 50.7%;
+}
+
+.main .bangumi-card .auto-ratio{
+    overflow: hidden;
+    padding: 7px;
+}
+
+.main .bangumi-card a{
+    color: #5669b7;
+}
+.main .bangumi-card a:hover{
+    color: rgb(253, 76, 92);
+}
+
+.main .bangumi-card img{
+    border-radius: 4px;
+    height: 86%;
+    transition: all 0.3s;
+}
+
+.bangumi-card a{
+    text-decoration: none;
+}
+
+.bangumi-card img:hover{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.23), 0 3px 6px 0 rgba(0,0,0,0.2);
+    transform: scale(1.03);
+    /*-ms-transform: scale(1.2);*/
+}
+
+.main .bangumi-card h5{
+    margin-top: 8px;
+}
+
+
+.filter-box{
+    overflow: hidden;
+    background-color: rgba(255,255,255,0.77);
+    border-radius: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2), 0 2px 4px 0 rgba(0,0,0,0.17);
+
+}
+
+.filter-box dl{
+    padding-bottom: 10px;
+    border-bottom: lightgray 1px solid;
+    margin-top: 12px;
+    margin-bottom: 0px;
+}
+
+.filter-box dl span{
+    font-size: 17px;
+    float: left;
+    line-height: 24px;
+    color: gray;
+}
+
+.filter-box dl dd a{
+    margin: 5px;
+    font-size: 15px;
+    text-decoration: none;
+    line-height: 27px;
+}
+
+
+.filter-box .on{
+    padding: 3px;
+    color: white;
+    background-color: rgba(253, 76, 92, 0.67);
+    border-radius: 4px;
+}
+
+.filter{
+    font-size: 17px;
+    padding: 7px;
+}
+
+.main a.switcher{
+    text-decoration: none;
+    font-size: 17px;
+}
+
+
+@media screen and (max-width: 768px){
+    .filter-box dl dd a{
+        font-size: 12px;
+        line-height: 24px;
+    }
+    .filter-box dl span{
+        font-size: 13px;
+    }
+    .main a.switcher{
+        font-size: 13px;
+    }
+    .filter-box dl{
+        padding-bottom: 5px;
+        margin-top: 5px;
+    }
+    h5{
+        font-size: 10px;
+        margin-top: 5px;
+    }
+    .main .bangumi-card img{
+        height: 84%;
+
+    }
+    .main .bangumi-card .auto-ratio{
+        padding: 3px;
+    }
+}
+@media screen and (min-width: 768px){
+    h5{
+        font-size: 16px;
+    }
+}
+

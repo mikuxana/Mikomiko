@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>mikomiko</title>
+		<meta name="description" content="千翩网,404" />
+		<meta name="keywords" content="千翩网,404" />
+		<meta name="author" content="Codrops" />
+		<link href="img/15.0904011.ico" mce_href="favicon.ico" rel="shortcut icon" type="/error/img/15.0904011.ico" />
+		<script type="text/javascript" src="/ref/js/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript" src="/error/js/jquery.beattext.js"></script>
+		<script type="text/javascript" src="/error/js/easying.js"></script>
+		
+		<link rel="stylesheet" href="/error/css/style.css" />
+		<link rel="stylesheet" href="/error/css/button.css" />
+		<script>
+			$(function() {
+			$('p#roloadText').beatText({isAuth:true,beatHeight:"1em",isRotate:false,upTime:100,downTime:100});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="logo" id="a" onclick="a();" title="点击我有惊喜！">
+				<img src="/error/img/20171216094159_QaLXP.jpeg">
+			</div>
+			<br /><br />
+			<div class="container">
+		<p id="roloadText">404！miko娘找不到这个网页了哦...</p>
+	</div>
+
+		<div class="box bg-1">
+			<button class="button button--antiman button--round-l button--text-medium" onclick="location.href='/'"><span>返回首页</span></button>
+	</div>
+	</div>
+		<div class="body_buttom"></div>
+		
+			
+<audio autoplay loop id="music">
+<source src="/error/music/music.mp3" type="audio/mpeg">
+</audio>
+<script>   
+   function a(){
+     var audio = document.getElementById('music'); 
+     if(audio.paused){                 
+         audio.play();//audio.play();// 播放  
+     }
+     else{
+          audio.pause();// 暂停
+     } 
+   }
+</script>
+	</body>
+</html>

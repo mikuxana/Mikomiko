@@ -1,0 +1,514 @@
+@media screen and (max-width: 1600px) and (max-height: 1000px){
+    .span{font-size: 12px;}
+}
+@media screen and (max-width: 1200px) {
+    .span{font-size: 30px;}
+}
+@media screen and (max-width: 800px) {
+    .span{font-size: 16px;}
+}
+@media screen and (max-width: 600px) {
+    .span{font-size: 12px;}
+}
+
+
+/*--------------------------------------------------------*/
+
+#banner{
+    width: 550px;
+    height: 242px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slider-img{
+    position: relative;
+    overflow: hidden;
+    width: 550px;
+    height: 242px;
+}
+
+.slider-img a{
+    position: absolute;
+    width: 550px;
+    height: 242px;
+}
+.slider-img a img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+#banner .slider-btn{
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    height: 18px;
+}
+#banner .slider-btn span{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin: 0 2px;
+    background-color: #fff;
+    background: url('ref/img/icon/icon.png') no-repeat -855px -790px;
+}
+#banner .slider-btn .current_span{
+    background-position: -855px -727px;
+}
+
+/*--------------------------------------------*/
+
+.xana-nav{
+    background-image: url("ref/img/ad/headerbg.jpg");
+}
+
+.circle-border{
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.red-border1{
+    border: 1px red solid;
+}
+
+.icon-border{
+    border: 2px rgba(245, 136, 190, 0.5) solid;
+}
+
+.black-border1{
+    border: 1px black solid;
+}
+
+.green-border1{
+    border: 1px lawngreen solid;
+}
+
+
+.auto-adjust{
+    width: 100%;
+    height: 100%;
+}
+
+.auto-height{
+    height: 100%;
+}
+
+.auto-width{
+    width: 100%;
+    height: auto;
+}
+
+.auto-width-height-ratio{
+    width: 100%;
+    position: relative;
+}
+
+
+
+
+
+.half-height{
+    height: 50%;
+}
+
+.nav-text:hover{
+    color: #FD4C5B;
+    /*        background-color: transparent;*/
+}
+
+.red-back-color{
+    background-color: red;
+}
+
+
+
+
+.theme-text{
+    position: absolute;
+    bottom: 7px;
+    left: 7px;
+    color: whitesmoke;
+    font-size: 12px;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.theme-shadow{
+    left: 10px; top: 10px; font-size: 10%;
+    background-color: transparent;
+}
+
+.theme-tip{
+    right: 5px; top: 30px; font-size: 7px;
+    background-color: transparent;
+}
+
+
+
+
+
+
+/*-----------------------缩略图部分-----------------------------*/
+
+.test-div{
+    width: 400px;
+    height: 270px;
+    border: 1px red solid;
+}
+
+.test-div .child{
+    width: 98%;
+    height: 98%;
+
+    border: 1px red solid;
+}
+
+
+
+.hotbox{
+    overflow:hidden;
+    border-radius: 5px;
+    position: relative;
+    margin:3px;
+    padding-bottom: 60.27%;
+}
+
+.touch {
+    overflow:hidden;
+    position: absolute;
+}
+.touch .content {
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    position:absolute;
+    font-size:20px;
+    background-color:black;
+    color:white;
+    text-align:center;
+    visibility:hidden;
+}
+
+.shadow-text{
+    position: absolute;
+    bottom: 5px;
+    left: 6px;
+    font-size: 10px;
+    color: whitesmoke;
+}
+
+.shadow-up{
+    bottom: 23px;
+}
+
+
+
+.touch:hover .content{
+    visibility:visible;
+    background-color:rgba(0,0,0,0.47)
+}
+
+
+/*----------------------------------------------------------*/
+
+.no-padding{
+    padding: 0px;
+}
+
+.logo-backimg{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.mark-body{
+    height: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.mark-body .mark-icon{
+    height: 100%; width: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.mark-body .mark-info{
+    font-size: 13px;
+    font-weight: bold;
+    font-family: "Microsoft YaHei UI Light";
+
+    position: absolute;
+    left: 50px;
+    top: 30%;
+}
+
+.mark-body .mark-btn{
+    float: right;
+}
+
+
+.img-card{
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15), 0 2px 4px 0 rgba(0,0,0,0.17);
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 2%;
+    width: 95.66%;
+    height: 93.66%;
+}
+
+.img-card .bangumi-title{
+    color: white;
+    background-color:rgba(0,0,0,0.23);
+    font-family:' Microsoft YaHei UI Light';
+    position: absolute; bottom: 26%; left: 22%;
+}
+
+.img-card .bangumi-latest{
+    color: #FD4C5B;
+    background-color:rgba(236,229,231,0.45);
+    font-family: 'Microsoft YaHei UI Light';
+    font-weight: bold;
+    position: absolute; right: 4%; top: 4%;
+}
+
+.img-card div .bangumi-up-icon{
+    height: 37px;
+    width:37px;
+    position: absolute; left: 5%; bottom: 10%
+}
+
+.img-card div .bangumi-up-user{
+    position: absolute; left: 20%; bottom: 5%;
+}
+
+.img-card div .anime-up-time{
+    color: #a8a8a8;
+    font-size: 10px;
+    font-weight: bold;
+    position: absolute; right: 4.3%; bottom: 4.3%;
+}
+
+
+.rec-body{
+
+}
+
+
+.rec{
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.12), 0 1px 2px 0 rgba(0,0,0,0.13);
+}
+
+
+.rec a .upbox{
+    position: absolute; left:5%; top:5%; height: 34px;
+}
+
+.rec a .upbox span{
+    background-color:rgba(0,0,0,0.37); color:white; font-size: 13px
+}
+
+.rec a .imgbox{
+    height: 74%; overflow: hidden;
+}
+
+
+.rec a .rec-tip{
+    color: black; position: absolute; left: 2%; top: 74%;
+}
+
+.rec a span .rec-title{
+    font-family: "Microsoft YaHei UI Light";
+    font-weight: bold;
+    font-size: 12px;
+
+}
+
+.rec a span .rec-play_comment{
+    color: gray; font-size: 12px;
+}
+
+
+/*------------------------------------------------------*/
+
+.logo-backimg .auto-width-height-ratio{
+    padding-top: 10.25%;
+}
+
+
+.rec-body .auto-width-height-ratio{
+    padding-top: 77%;
+}
+
+
+
+.auto-ratio{
+    position: absolute;
+    left: 0;
+    top:0;
+}
+
+.mark-body .more{
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 2px;
+    font-family: 'Microsoft YaHei UI Light';
+    font-size: 13px;
+    font-weight: bold;
+    color: rgba(253, 76, 91, 0.5);
+}
+
+.mark-body .btn-more{
+    position: absolute;
+    top: 20%;
+    right: 0;
+}
+#ads-box{
+    height: 100px;
+    margin-bottom: 7px;
+    margin-top: 7px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+
+.acg .auto-width-height-ratio{
+    padding-top: 61.67%;
+}
+
+.acg .img-card .row{
+    height: 77%;
+    overflow: hidden;
+}
+
+.user{
+
+}
+
+.user .user-box{
+    position: absolute;
+    left: 5.6%;
+    bottom:26%;
+    height: 60px;
+}
+
+
+.user .user-box span{
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.5);
+}
+
+
+.user .user-img{
+    height: 66%;
+    overflow: hidden;
+}
+
+.user .user-login{
+    position: absolute;
+    right: 6.66%;
+    bottom: 7%;
+}
+
+
+.user .auto-width-height-ratio{
+    padding-top: 77.52%;
+}
+
+.user .auto-ratio{
+    border-radius: 7px;
+    overflow: hidden;
+    margin-top: 4px;
+    width:100%;
+    height: 95%;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15), 0 2px 7px 0 rgba(0,0,0,0.17);
+}
+
+.user .user-tip{
+    position: absolute;
+    right: 0; bottom: 0;
+    font-size:12px;
+    color: gray;
+}
+
+
+.rank .auto-width-height-ratio{
+    padding-top: 36.923%;
+}
+
+.rank .auto-width-height-ratio .auto-ratio{
+    width: 100%;
+    height: 95.66%;
+    margin-top: 5px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.17), 0 2px 4px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.rank .rank-imgbox{
+    width: 55%;
+    border-radius: 4px;
+    overflow: hidden
+}
+
+.rank .rank-textbox{
+    width: 43%;
+    position: absolute;
+    right: 0; top: 0;
+}
+
+.rank .rank-textbox div{
+    position: absolute;
+    bottom: 10px;
+}
+
+.rank .rank-textbox div .rank-title{
+    font-family: "Microsoft YaHei UI Light";
+    font-weight: bold;
+}
+
+.rank .rank-textbox div .rank-up{
+    font-size: 7px;;
+}
+
+.rank .rank-textbox div .rank-play-comment{
+    olor: gray;
+    font-size:10px;
+    font-family: 'Microsoft YaHei UI Light';
+}
+
+/*------------------------------------------*/
+.header-backimg{
+    border-radius: 5px;
+    background-size: cover;
+    overflow: hidden;
+    height: 140px;
+}
+.main-body{
+    margin-top: 12px;
+}
+
+.navbar{
+    background-color: rgba(255,255,255,0.77);
+}
+
+.navbar .navbar-form{
+    position: absolute;
+    left: 46.66%;
+}
+
+.navbar ul{
+    font-weight: bold;
+    font-size: 12px;
+}
+
+
+.lunbo .auto-width-height-ratio{
+    padding-bottom: 63.27%;
+}

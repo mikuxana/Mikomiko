@@ -1,0 +1,151 @@
+
+.main .galInfo{
+    background-color: rgba(255,255,255,0.5);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25), 0 3px 6px 0 rgba(0,0,0,0.25);
+    transition: all 0.4s;
+    padding: 1%;
+    border-radius: 7px;
+    position: relative;
+}
+.main .galInfo:hover{
+    box-shadow: 0 7px 14px 0 rgba(0,0,0,0.23),
+    0 5px 10px 0 rgba(0,0,0,0.25);
+}
+.main .galInfo p{
+    text-align: center;
+    color: rgb(111, 125, 246);
+    margin-top: 20px;
+    font-size: 24px;
+}
+.main .galInfo p:hover{
+    color: rgb(253, 76, 92);
+}
+.main .galInfo .mark{
+    background-color: whitesmoke;
+    border-radius: 3px;
+    color: #6699FF;
+    font-weight: bold;
+    font-family: "Microsoft YaHei UI Light";
+    font-size: 17px;
+    padding: 5px;
+}
+.main .galInfo .mark a{
+    text-decoration: none;
+    float: right;
+}
+.main .galInfo .img{
+     padding: 2%;
+ }
+.main .galInfo .img img{
+    margin-bottom: 2%;
+    border-radius: 5px;
+    transition: all 0.4s;
+}
+.main .galInfo .img img:hover{
+    margin-bottom: 2%;
+    border-radius: 5px;
+    transform: scale(1.077);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.23), 0 5px 10px 0 rgba(0,0,0,0.25);
+}
+.main .galInfo .des{
+    margin: 2%;
+    padding: 2%;
+    background: rgba(240, 234, 246, 0.5);
+    border-radius: 5px;
+    font-size: 15px;
+    transition: all 0.3s;
+}
+.main .galInfo .des:hover{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.23), 0 5px 10px 0 rgba(0,0,0,0.25);
+}
+.pwd{
+    float: right;
+    width: 80%;
+    text-align: center;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px whitesmoke solid;
+}
+.pwd:hover{
+    border: 1px #8f8ffa solid;
+}
+.src{
+    margin: 2%;
+    padding: 2%;
+    background: rgba(231, 246, 233, 0.5);
+    border-radius: 5px;
+    font-size:  17px;
+    transition: all 0.3s;
+}
+.src:hover{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.23),
+    0 5px 10px 0 rgba(0,0,0,0.25);
+}
+.src .btn{
+    font-size:  17px;
+}
+.src p{
+    margin-top: 20px;
+}
+.recDiv{
+    padding-top: 58.5%;
+    margin-top: 20px;
+}
+.recDiv>a>.info{
+    left: unset;
+    top: unset;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding-left: 7px;
+    padding-right: 7px;
+    color: black;
+    border-radius: 5px;
+}
+.recDiv .info:hover{
+    color: rgba(255, 21, 18, 0.67);
+}
+
+
+
+.galInfo .tags{
+    font-size: 24px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.galInfo .tags a{
+    opacity: 0.66;
+    font-size: 17px;
+    font-family: "Microsoft YaHei UI Light";
+    margin-left: 3px;
+    padding: 1px 6px 1px 6px;
+    border-radius: 3px;
+    background-color: rgba(253, 76, 92, 0.5);
+    text-decoration: none;
+    color: white;
+}
+.galInfo .tags a:hover{
+    opacity: 1;
+}
+
+@media screen and (max-width: 500px){
+    .main .galInfo p{
+        font-size: 14px;
+    }
+    .main .galInfo .mark{
+        font-size: 7px;
+    }
+    .main .galInfo .des{
+        font-size: 7px;
+    }
+
+    .src .btn{
+        font-size: 7px;
+    }
+    .src{
+        font-size: 7px;
+    }
+    .pwd{width: 70%}
+}
